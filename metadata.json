@@ -1,0 +1,6 @@
+{
+  "name": "아틀리에 쇼케이스",
+  "description": "프리미엄 맞춤형 유리 진열장 전문 브랜드 아틀리에 쇼케이스 공식 홈페이지",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

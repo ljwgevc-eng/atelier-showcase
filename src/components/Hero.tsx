@@ -1,18 +1,12 @@
 import React from 'react';
 import { ArrowRight, ShieldCheck, Gem, Sparkles, Award, Ruler, CheckCircle2 } from 'lucide-react';
 import { motion } from 'motion/react';
-import { PORTFOLIO_DATA } from '../data';
-import { PortfolioItem } from '../types';
 
 interface HeroProps {
   onNavigate: (tab: string) => void;
-  onSelectPortfolio: (item: PortfolioItem) => void;
 }
 
-export default function Hero({ onNavigate, onSelectPortfolio }: HeroProps) {
-  // Highlighted portfolio items
-  const highlightedItems = PORTFOLIO_DATA.filter(item => item.highlighted);
-
+export default function Hero({ onNavigate }: HeroProps) {
   return (
     <div id="hero-section-container" className="bg-slate-950 text-white overflow-hidden">
       {/* 1. Interactive Hero Slider / Banner */}
@@ -85,10 +79,10 @@ export default function Hero({ onNavigate, onSelectPortfolio }: HeroProps) {
             </button>
             <button
               id="hero-portfolio-cta"
-              onClick={() => onNavigate('portfolio')}
+              onClick={() => onNavigate('products')}
               className="w-full sm:w-auto px-8 py-4 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 hover:border-gold-400/50 text-white font-medium text-sm tracking-wider rounded-sm transition-all duration-300 flex items-center justify-center space-x-2 backdrop-blur-sm"
             >
-              <span>시공 사례 보러가기</span>
+              <span>제품 라인업 보기</span>
             </button>
           </motion.div>
 
@@ -192,77 +186,6 @@ export default function Hero({ onNavigate, onSelectPortfolio }: HeroProps) {
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Portfolio Highlights Section */}
-      <section className="py-24 bg-slate-900/40 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
-            <div>
-              <h2 className="font-serif text-xs font-semibold text-gold-400 tracking-[0.3em] uppercase mb-3">
-                Masterpieces
-              </h2>
-              <p className="font-serif text-2xl sm:text-3xl font-light text-white">
-                아틀리에를 대표하는{' '}
-                <span className="text-gold-300 font-normal">최근 명품 시공 사례</span>
-              </p>
-            </div>
-            <button
-              id="view-all-portfolio"
-              onClick={() => onNavigate('portfolio')}
-              className="mt-4 md:mt-0 text-xs text-gold-400 hover:text-gold-300 font-semibold tracking-wider flex items-center space-x-2 group transition-all"
-            >
-              <span>전체 포트폴리오 보기</span>
-              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {highlightedItems.map((item) => (
-              <div
-                key={item.id}
-                id={`highlight-card-${item.id}`}
-                onClick={() => onSelectPortfolio(item)}
-                className="group cursor-pointer bg-slate-950 border border-slate-800/80 overflow-hidden hover:border-gold-400/50 transition-all duration-300 flex flex-col h-full rounded-sm"
-              >
-                {/* Image Wrap */}
-                <div className="relative aspect-3/2 overflow-hidden bg-slate-900">
-                  <img
-                    src={item.afterImage}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-gold-400 text-[10px] font-semibold tracking-widest px-2.5 py-1 uppercase rounded-sm border border-gold-400/20">
-                    {item.categoryLabel}
-                  </div>
-                </div>
-
-                {/* Info Text */}
-                <div className="p-6 flex flex-col flex-grow">
-                  <span className="text-[10px] tracking-wider text-slate-500 mb-1.5 uppercase font-medium">
-                    {item.location} • {item.year}
-                  </span>
-                  <h3 className="font-serif text-base font-medium text-white mb-2 group-hover:text-gold-300 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-slate-400 text-xs font-light line-clamp-2 mb-4 flex-grow leading-relaxed">
-                    {item.subtitle}
-                  </p>
-                  <div className="pt-4 border-t border-slate-900 text-xs font-medium text-gold-400 flex items-center justify-between">
-                    <span className="text-[11px] font-mono font-light text-slate-500">
-                      {item.size.split('(')[0]}
-                    </span>
-                    <span className="flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
-                      <span>자세히 보기</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

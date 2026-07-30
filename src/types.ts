@@ -40,6 +40,8 @@ export interface InquiryFormData {
   width: number;
   depth: number;
   height: number;
+  shelfHeight?: number;
+  lowerWallHeight?: number;
   glassType: 'normal' | 'tempered' | 'low-iron'; // 일반유리, 강화유리, 저철분(디아망)초투명유리
   frameMaterial: 'stainless' | 'brass-gold' | 'wood' | 'frameless'; // 스테인리스, 브라스골드, 원목, 프레임리스(유리접합)
   lightingType: 'none' | 'top-spot' | 'side-led' | 'all-round'; // 없음, 상부 스포트, 좌우 LED 바, 전면 입체 조명
@@ -53,13 +55,13 @@ export interface InquiryFormData {
 export interface ProductItem {
   id: string;
   name: string;
-  category: 'tower' | 'island' | 'wall' | 'museum';
+  category: 'tower' | 'island' | 'wall' | 'cabinet';
   categoryLabel: string;
   image: string;
-  basePrice: number; // in KRW
-  dimensions: string; // e.g. "W 600 x D 600 x H 1800 mm"
+  dimensions: string;
   materials: string[];
   description: string;
   features: string[];
 }
+
 

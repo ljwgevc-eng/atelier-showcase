@@ -17,13 +17,15 @@ export default function InquiryForm({
   initialDimensions = ''
 }: InquiryFormProps) {
   // 1. Showcase Customizer States
-  const [width, setWidth] = useState<number>(1200); // 600 - 2400 mm
-  const [depth, setDepth] = useState<number>(600);   // 400 - 1000 mm
-  const [height, setHeight] = useState<number>(1000); // 400 - 2400 mm
+  const [width, setWidth] = useState<number>(550); // Default to 550 mm
+  const [depth, setDepth] = useState<number>(450);   // Default to 450 mm
+  const [height, setHeight] = useState<number>(1800); // Default to 1800 mm
+  const [shelfHeight, setShelfHeight] = useState<number>(250); // Default shelf height to 250 mm
+  const [lowerWallHeight, setLowerWallHeight] = useState<number>(550); // Default lower wall/base height to 550 mm
 
-  const [glassType, setGlassType] = useState<InquiryFormData['glassType']>('low-iron');
+  const [glassType, setGlassType] = useState<InquiryFormData['glassType']>('tempered');
   const [frameMaterial, setFrameMaterial] = useState<InquiryFormData['frameMaterial']>('brass-gold');
-  const [lightingType, setLightingType] = useState<InquiryFormData['lightingType']>('side-led');
+  const [lightingType, setLightingType] = useState<InquiryFormData['lightingType']>('none');
   const [handleType, setHandleType] = useState<InquiryFormData['handleType']>('push-to-open');
   const [lockType, setLockType] = useState<InquiryFormData['lockType']>('none');
 
@@ -88,9 +90,11 @@ export default function InquiryForm({
         // Parse Dimensions from string (e.g. W 600 x D 600 x H 1800 mm)
         const dimMatch = initialStyleTitle.match(/W\s*(\d+)\s*x\s*D\s*(\d+)\s*x\s*H\s*(\d+)/i);
         if (dimMatch) {
-          setWidth(parseInt(dimMatch[1]));
+          const parsedW = parseInt(dimMatch[1]);
+          setWidth(parsedW > 1000 ? 1000 : parsedW);
           setDepth(parseInt(dimMatch[2]));
-          setHeight(parseInt(dimMatch[3]));
+          // Enforce height to 1800 mm as requested by the user
+          setHeight(1800);
         }
       } else {
         // This is a standard portfolio selection
@@ -102,9 +106,11 @@ export default function InquiryForm({
     if (initialDimensions) {
       const dimMatch = initialDimensions.match(/W\s*(\d+)\s*x\s*D\s*(\d+)\s*x\s*H\s*(\d+)/i);
       if (dimMatch) {
-        setWidth(parseInt(dimMatch[1]));
+        const parsedW = parseInt(dimMatch[1]);
+        setWidth(parsedW > 1000 ? 1000 : parsedW);
         setDepth(parseInt(dimMatch[2]));
-        setHeight(parseInt(dimMatch[3]));
+        // Enforce height to 1800 mm as requested by the user
+        setHeight(1800);
       }
     }
   }, [initialStyleTitle, initialDimensions]);
@@ -196,6 +202,8 @@ export default function InquiryForm({
         width,
         depth,
         height,
+        shelfHeight,
+        lowerWallHeight,
         glassType,
         frameMaterial,
         lightingType,
@@ -322,20 +330,20 @@ export default function InquiryForm({
                     <div>
                       <div className="flex justify-between text-xs mb-1.5">
                         <span className="text-slate-400">가로 폭 (Width)</span>
-                        <span className="font-mono text-gold-400 font-bold">{width.toLocaleString()} mm</span>
+                        <span className="font-mono text-gold-400 font-bold">{(width > 1000 ? 1000 : width).toLocaleString()} mm</span>
                       </div>
                       <input
                         type="range"
-                        min="600"
-                        max="2400"
+                        min="400"
+                        max="1000"
                         step="50"
-                        value={width}
+                        value={width > 1000 ? 1000 : width}
                         onChange={(e) => setWidth(Number(e.target.value))}
                         className="w-full accent-gold-500 h-1 bg-slate-800 rounded-lg cursor-pointer"
                       />
                       <div className="flex justify-between text-[10px] text-slate-600 font-mono mt-1">
-                        <span>Min: 600</span>
-                        <span>Max: 2,400</span>
+                        <span>Min: 400</span>
+                        <span>Max: 1,000</span>
                       </div>
                     </div>
 
@@ -347,7 +355,7 @@ export default function InquiryForm({
                       </div>
                       <input
                         type="range"
-                        min="400"
+                        min="300"
                         max="1000"
                         step="50"
                         value={depth}
@@ -355,7 +363,7 @@ export default function InquiryForm({
                         className="w-full accent-gold-500 h-1 bg-slate-800 rounded-lg cursor-pointer"
                       />
                       <div className="flex justify-between text-[10px] text-slate-600 font-mono mt-1">
-                        <span>Min: 400</span>
+                        <span>Min: 300</span>
                         <span>Max: 1,000</span>
                       </div>
                     </div>
@@ -369,165 +377,21 @@ export default function InquiryForm({
                       <input
                         type="range"
                         min="400"
-                        max="2400"
+                        max="1800"
                         step="50"
-                        value={height}
+                        value={height > 1800 ? 1800 : height}
                         onChange={(e) => setHeight(Number(e.target.value))}
                         className="w-full accent-gold-500 h-1 bg-slate-800 rounded-lg cursor-pointer"
                       />
                       <div className="flex justify-between text-[10px] text-slate-600 font-mono mt-1">
                         <span>Min: 400</span>
-                        <span>Max: 2,400</span>
+                        <span>Max: 1,800</span>
                       </div>
                     </div>
+
+                    {/* Shelf Height and Lower Wall Height removed by request */}
                   </div>
                 </div>
-
-                {/* Part B: Glass Select */}
-                <div className="mb-8 border-b border-slate-850 pb-6">
-                  <h3 className="text-xs font-bold text-slate-300 mb-4 uppercase tracking-wide">
-                    유리 소재 필터 선택
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                    {[
-                      { id: 'normal', title: '일반 투명유리', sub: '기본 보급형 피팅', mult: '기준가' },
-                      { id: 'tempered', title: '강화 안전유리', sub: '우수한 보존 하중', mult: '1.25배 할증' },
-                      { id: 'low-iron', title: '디아망 초투명 유리', sub: '녹색 배제 최고 투과율', mult: '1.45배 할증' },
-                    ].map((opt) => (
-                      <button
-                        key={opt.id}
-                        type="button"
-                        onClick={() => setGlassType(opt.id as any)}
-                        className={`p-4 text-left border rounded-sm transition-all text-xs cursor-pointer ${
-                          glassType === opt.id
-                            ? 'bg-slate-900 border-gold-400 text-gold-300 font-semibold'
-                            : 'bg-slate-950 border-slate-900 text-slate-400 hover:border-slate-800'
-                        }`}
-                      >
-                        <span className="block font-semibold text-white">{opt.title}</span>
-                        <span className="text-[10px] text-slate-500 block mt-1 font-light leading-snug">{opt.sub}</span>
-                        <span className="text-[10px] text-gold-500 font-mono block mt-2">{opt.mult}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Part C: Frame Select */}
-                <div className="mb-8 border-b border-slate-850 pb-6">
-                  <h3 className="text-xs font-bold text-slate-300 mb-4 uppercase tracking-wide">
-                    외경 프레임 마감 선택
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                    {[
-                      { id: 'brass-gold', title: '사틴 브라스 골드', sub: '황동광 최고급형' },
-                      { id: 'stainless', title: '사틴 실버 헤어라인', sub: '모던 스틸 인테리어' },
-                      { id: 'wood', title: '아메리칸 원목 월넛', sub: '클래식 정취 디자인' },
-                      { id: 'frameless', title: '프레임리스 UV 접합', sub: '사방 테두리 없는 시야' },
-                    ].map((opt) => (
-                      <button
-                        key={opt.id}
-                        type="button"
-                        onClick={() => setFrameMaterial(opt.id as any)}
-                        className={`p-3.5 text-left border rounded-sm transition-all text-xs cursor-pointer ${
-                          frameMaterial === opt.id
-                            ? 'bg-slate-900 border-gold-400 text-gold-300 font-semibold'
-                            : 'bg-slate-950 border-slate-900 text-slate-400 hover:border-slate-800'
-                        }`}
-                      >
-                        <span className="block font-semibold text-white">{opt.title}</span>
-                        <span className="text-[9px] text-slate-500 block mt-1 leading-snug font-light">{opt.sub}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Part D: Lighting Select */}
-                <div className="mb-8 border-b border-slate-850 pb-6">
-                  <h3 className="text-xs font-bold text-slate-300 mb-4 uppercase tracking-wide">
-                    LED 조명 및 배선 솔루션
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                    {[
-                      { id: 'none', title: '조명 없음', sub: '자연광 배치용' },
-                      { id: 'top-spot', title: '상부 스포트라이트', sub: '박물관 국부 투사' },
-                      { id: 'side-led', title: '좌우 리니어 LED', sub: '그늘 없는 일체 조명' },
-                      { id: 'all-round', title: '전선숨김 마그네틱', sub: '무선 레일 자유 조절' },
-                    ].map((opt) => (
-                      <button
-                        key={opt.id}
-                        type="button"
-                        onClick={() => setLightingType(opt.id as any)}
-                        className={`p-3.5 text-left border rounded-sm transition-all text-xs cursor-pointer ${
-                          lightingType === opt.id
-                            ? 'bg-slate-900 border-gold-400 text-gold-300 font-semibold'
-                            : 'bg-slate-950 border-slate-900 text-slate-400 hover:border-slate-800'
-                        }`}
-                      >
-                        <span className="block font-semibold text-white">{opt.title}</span>
-                        <span className="text-[9px] text-slate-500 block mt-1 leading-snug font-light">{opt.sub}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Part E: Handle Select */}
-                <div className="mb-8 border-b border-slate-850 pb-6">
-                  <h3 className="text-xs font-bold text-slate-300 mb-4 uppercase tracking-wide">
-                    문 및 손잡이 개폐 방식
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                    {[
-                      { id: 'push-to-open', title: '푸시 오픈', sub: '터치 압축 개폐형' },
-                      { id: 'brass-pull', title: '황동 브라스 노브', sub: '솔리드 바 마감 노브' },
-                      { id: 'minimal-grip', title: '매립형 미니멀 바', sub: '슬림 수직 돌출 그립' },
-                      { id: 'key-grip', title: '잠금 일체형', sub: '손잡이 겸용 잠금키' },
-                    ].map((opt) => (
-                      <button
-                        key={opt.id}
-                        type="button"
-                        onClick={() => setHandleType(opt.id as any)}
-                        className={`p-3.5 text-left border rounded-sm transition-all text-xs cursor-pointer ${
-                          handleType === opt.id
-                            ? 'bg-slate-900 border-gold-400 text-gold-300 font-semibold'
-                            : 'bg-slate-950 border-slate-900 text-slate-400 hover:border-slate-800'
-                        }`}
-                      >
-                        <span className="block font-semibold text-white">{opt.title}</span>
-                        <span className="text-[9px] text-slate-500 block mt-1 leading-snug font-light">{opt.sub}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Part F: Lock Select */}
-                <div className="mb-6">
-                  <h3 className="text-xs font-bold text-slate-300 mb-4 uppercase tracking-wide">
-                    보안 및 잠금장치 선택
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-                    {[
-                      { id: 'none', title: '잠금장치 없음', sub: '간편한 가정 전용' },
-                      { id: 'key-lock', title: '실린더 열쇠형', sub: '클래식 정밀 실린더' },
-                      { id: 'digital-lock', title: '전자 번호키', sub: '터치패드 전자 도어락' },
-                      { id: 'fingerprint', title: '지문인식 히든락', sub: '생체센서 최고 보안' },
-                    ].map((opt) => (
-                      <button
-                        key={opt.id}
-                        type="button"
-                        onClick={() => setLockType(opt.id as any)}
-                        className={`p-3.5 text-left border rounded-sm transition-all text-xs cursor-pointer ${
-                          lockType === opt.id
-                            ? 'bg-slate-900 border-gold-400 text-gold-300 font-semibold'
-                            : 'bg-slate-950 border-slate-900 text-slate-400 hover:border-slate-800'
-                        }`}
-                      >
-                        <span className="block font-semibold text-white">{opt.title}</span>
-                        <span className="text-[9px] text-slate-500 block mt-1 leading-snug font-light">{opt.sub}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
               </div>
 
               {/* Right Column: 3D CAD Preview + Instant Quote Summary + Contact Form (5 Cols) */}
@@ -548,52 +412,62 @@ export default function InquiryForm({
                     <div className="absolute inset-0 bg-[linear-gradient(rgba(194,161,106,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(194,161,106,0.01)_1px,transparent_1px)] bg-[size:12px_12px]" />
                     
                     {/* Decorative 3D Axis indicator */}
-                    <div className="absolute bottom-3 left-3 font-mono text-[8px] text-slate-600 flex flex-col">
-                      <span>X-AXIS: {width} mm</span>
-                      <span>Y-AXIS: {height} mm</span>
-                      <span>Z-AXIS: {depth} mm</span>
+                    <div className="absolute bottom-3 left-3 font-mono text-[8px] text-slate-600 flex flex-col space-y-0.5">
+                      <span>X-AXIS (Width): {width} mm</span>
+                      <span>Y-AXIS (Height): {height} mm</span>
+                      <span>Z-AXIS (Depth): {depth} mm</span>
                     </div>
 
-                    {/* Dynamic Showcase Cabinet Frame */}
-                    <div
-                      className={`relative w-40 h-44 border-2 flex flex-col justify-between p-1 transition-all duration-300 ${getFrameColorClass()}`}
-                      style={{
-                        width: `${Math.max(90, Math.min(180, (width / 2400) * 180))}px`,
-                        height: `${Math.max(120, Math.min(180, (height / 2400) * 180))}px`,
-                      }}
-                    >
-                      {/* Top Glass Plate */}
-                      <div className="h-4 border-b border-slate-800 flex items-center justify-center text-[7px] text-slate-600 font-mono">
-                        GLASS CAP
-                      </div>
-
-                      {/* Side Glass Lines & LED glowing line effects */}
-                      <div className="flex-grow flex justify-between relative px-1 py-4">
-                        {/* Left LED bar glow if side-led / all-round is active */}
-                        {(lightingType === 'side-led' || lightingType === 'all-round') && (
-                          <div className="w-[3px] h-full bg-yellow-200/80 shadow-[0_0_8px_rgba(253,224,71,0.8)] rounded-full animate-pulse" />
-                        )}
-
-                        <div className="flex-grow flex items-center justify-center">
-                          <span className="text-[9px] text-slate-400 font-mono font-light select-none">
-                            {getFrameLabel().split(' ')[0]}
-                          </span>
+                    {/* Visual stack of Showcase */}
+                    <div className="flex flex-col items-center space-y-1 z-10">
+                      {/* Dynamic Showcase Cabinet Frame */}
+                      <div
+                        className={`relative border-2 flex flex-col justify-between p-1 transition-all duration-300 ${getFrameColorClass()}`}
+                        style={{
+                          width: `${Math.max(80, Math.min(160, (width / 2400) * 160))}px`,
+                          height: `${Math.max(80, Math.min(125, (height / 2400) * 125))}px`,
+                        }}
+                      >
+                        {/* Top Glass Plate */}
+                        <div className="h-3 border-b border-slate-800 flex items-center justify-center text-[6px] text-slate-600 font-mono">
+                          GLASS CAP
                         </div>
 
-                        {/* Right LED bar glow */}
-                        {(lightingType === 'side-led' || lightingType === 'all-round') && (
-                          <div className="w-[3px] h-full bg-yellow-200/80 shadow-[0_0_8px_rgba(253,224,71,0.8)] rounded-full animate-pulse" />
-                        )}
+                        {/* Side Glass Lines, dynamic shelves & LED glowing line effects */}
+                        <div className="flex-grow flex flex-col justify-between relative px-1 py-1.5 overflow-hidden">
+                          {/* Glowing LED bars on the sides */}
+                          {(lightingType === 'side-led' || lightingType === 'all-round') && (
+                            <>
+                              <div className="absolute left-1 top-1 bottom-1 w-[2px] bg-yellow-200/85 shadow-[0_0_6px_rgba(253,224,71,0.8)] rounded-full animate-pulse z-10" />
+                              <div className="absolute right-1 top-1 bottom-1 w-[2px] bg-yellow-200/85 shadow-[0_0_6px_rgba(253,224,71,0.8)] rounded-full animate-pulse z-10" />
+                            </>
+                          )}
 
-                        {/* Top Spot light indicator if active */}
-                        {lightingType === 'top-spot' && (
-                          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-1.5 bg-yellow-200 shadow-[0_4px_15px_rgba(253,224,71,0.9)] rounded-b-sm" />
-                        )}
-                      </div>
+                          {/* Top Spot light indicator if active */}
+                          {lightingType === 'top-spot' && (
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-1 bg-yellow-200 shadow-[0_3px_12px_rgba(253,224,71,0.9)] rounded-b-sm z-10" />
+                          )}
 
-                      {/* Bottom Cabinet / Wood Base */}
-                      <div className="h-8 border-t border-slate-800 bg-slate-900/80 flex items-center justify-center text-[8px] text-slate-500 font-mono">
-                        BASE PLINTH
+                          {/* Dynamic glass shelves inside based on height and shelfHeight */}
+                          <div className="absolute inset-x-2 inset-y-1.5 flex flex-col justify-around pointer-events-none z-5">
+                            {Array.from({ length: Math.max(0, Math.min(8, Math.floor(height / (shelfHeight || 250)) - 1)) }).map((_, idx) => (
+                              <div key={idx} className="w-full h-[1px] bg-cyan-400/20 border-t border-dashed border-cyan-400/30 relative">
+                                <span className="absolute -top-2 right-1 text-[6px] text-cyan-400/50 font-mono scale-90">{shelfHeight}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          <div className="flex-grow flex items-center justify-center z-0">
+                            <span className="text-[7px] text-slate-500/60 font-mono font-light select-none tracking-wider uppercase text-center">
+                              {getFrameLabel().split(' ')[0]}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Bottom Cabinet / Wood Base */}
+                        <div className="h-6 border-t border-slate-800 bg-slate-900/80 flex items-center justify-center text-[7px] text-slate-500 font-mono">
+                          BASE PLINTH
+                        </div>
                       </div>
                     </div>
 
@@ -641,20 +515,8 @@ export default function InquiryForm({
                       <span className="font-mono text-slate-300">할증 {glassType === 'normal' ? '없음' : glassType === 'tempered' ? '1.25x' : '1.45x'}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>• 프레임: {getFrameLabel().split(' ')[0]}</span>
-                      <span className="font-mono text-slate-300">적용 완료</span>
-                    </div>
-                    <div className="flex justify-between">
                       <span>• 조명: {getLightingLabel().split(' ')[1]}</span>
                       <span className="font-mono text-slate-300">셋업 포함</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>• 손잡이: {getHandleLabel().split(' ')[0]}</span>
-                      <span className="font-mono text-slate-300">선택 완료</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>• 보안락: {getLockLabel().split(' ')[0]}</span>
-                      <span className="font-mono text-slate-300">선택 완료</span>
                     </div>
                   </div>
 
@@ -878,20 +740,8 @@ export default function InquiryForm({
                       <span className="text-white">{getGlassLabel()}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-slate-500">프레임 및 몰딩:</span>
-                      <span className="text-white">{getFrameLabel()}</span>
-                    </div>
-                    <div className="flex justify-between">
                       <span className="text-slate-500">조명 배선 설계:</span>
                       <span className="text-white">{getLightingLabel()}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">문 및 손잡이 방식:</span>
-                      <span className="text-white">{getHandleLabel()}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">보안 잠금장치:</span>
-                      <span className="text-white">{getLockLabel()}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-500">진열 수납 용도:</span>
@@ -959,9 +809,7 @@ export default function InquiryForm({
                     </span>
                   </div>
                   <div className="text-[10px] text-slate-500 font-light truncate">
-                    자재: {item.glassType === 'low-iron' ? '디아망' : '강화유리'} / {item.frameMaterial} / {item.lightingType}
-                    {item.handleType && ` / 손잡이: ${item.handleType}`}
-                    {item.lockType && ` / 잠금장치: ${item.lockType}`}
+                    유리 사양: {item.glassType === 'low-iron' ? '디아망 초투명 유리' : '안전 강화유리'} / 조명: {item.lightingType === 'none' ? '없음' : item.lightingType === 'top-spot' ? '상부 스포트라이트' : item.lightingType === 'side-led' ? '좌우 LED' : '마그네틱 레일'}
                   </div>
                 </div>
               ))}

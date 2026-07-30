@@ -1,4 +1,5 @@
 import { PortfolioItem, FAQItem, ReviewItem, ProductItem } from './types';
+const blackShowcaseImg = '/src/assets/images/empty_black_cabinet_1784075717452.jpg';
 
 export const PORTFOLIO_DATA: PortfolioItem[] = [
   {
@@ -146,75 +147,15 @@ export const REVIEW_DATA: ReviewItem[] = [
 
 export const PRODUCT_DATA: ProductItem[] = [
   {
-    id: 'prod-1',
-    name: '아틀리에 시그니처 디아망 타워형 쇼케이스',
-    category: 'tower',
-    categoryLabel: '타워형 진열장',
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=800',
-    basePrice: 1850000,
-    dimensions: 'W 600 x D 600 x H 1800 mm',
-    materials: ['저철분 초투명 유리(디아망) 8mm', '브라스 골드 헤어라인 프레임', '자석식 무선 전력 3단 LED 선반'],
-    description: '360도 전 방향에서 컬렉션을 영롱하게 감상할 수 있는 시그니처 타워형 쇼케이스입니다. 배선 노출이 일절 없는 스마트 마그네틱 전원 인계 기술을 도입해, 선반 높낮이를 손쉽게 조절하면서도 완벽한 조명을 연출합니다.',
-    features: ['디아망 유리 기본 탑재', '무선 전력 자석 레일 특허 적용', '97CRI 자연광 LED 스포트라이트', '전자식 정전식 히든 락']
-  },
-  {
-    id: 'prod-2',
-    name: '청담 에비뉴엘 프리미엄 아일랜드 진열장',
-    category: 'island',
-    categoryLabel: '아일랜드형 진열장',
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800',
-    basePrice: 1450000,
-    dimensions: 'W 1200 x D 600 x H 950 mm',
-    materials: ['디아망 초투명 유리 10mm (UV 미세 접합)', '아메리칸 천연 월넛 원목 베이스', '고연색 매립형 마이크로 리니어 LED'],
-    description: '명품 쥬얼리 살롱 및 하이엔드 시계 매장에서 필수적으로 채택하는 개방형 탑 뷰 진열장입니다. UV 초정밀 본딩 가공으로 유리 결합부의 기포와 볼트를 완벽 제거하여 마치 보석이 공중에 떠 있는 듯한 느낌을 줍니다.',
-    features: ['독일산 언더레일 댐퍼 슬라이딩 서랍', 'CRI 95+ 초슬림 리니어 간접조명', '친환경 가죽/스웨이드 내부 패딩 선택 가능', '하부 수납공간 비밀번호 도어락 장착']
-  },
-  {
-    id: 'prod-3',
-    name: '마스터피스 컬렉터 피규어 전용 쇼케이스',
-    category: 'wall',
-    categoryLabel: '피규어 전용 진열장',
-    image: 'https://images.unsplash.com/photo-1601987177651-8edfe6c20009?auto=format&fit=crop&q=80&w=800',
-    basePrice: 1500000,
-    dimensions: 'W 1000 x D 500 x H 1800 mm',
-    materials: ['디아망 초투명 유리 8mm', '먼지 차단 특수 고기밀 가스켓', '앱 제어형 풀컬러 스마트 LED 조명'],
-    description: '수집가들의 소중한 한정판 피규어, 하이엔드 스테츄, 건담 프라모델 컬렉션을 완벽한 컨디션으로 보존하기 위해 설계된 장식장입니다. 미세 먼지를 완벽히 차단하는 기밀 가스켓 실링과 수집품 고유의 색감을 복원해 주는 고연색 조명을 결합했습니다.',
-    features: ['미세 먼지 차단률 99.8% 달성 특수 기밀 설계', '수집품 변색 방지 자외선(UV) 차단 안전유리', '하중 부담 없는 고강도 10mm 강화 선반 탑재', '스마트폰 원격 조명 연출 및 밝기 제어 시스템']
-  },
-  {
-    id: 'prod-4',
-    name: '뮤지엄 히스토리 특수 독립형 전시 케이스',
-    category: 'museum',
-    categoryLabel: '미술관/박물관형',
-    image: 'https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&q=80&w=800',
-    basePrice: 3900000,
-    dimensions: 'W 800 x D 800 x H 2000 mm',
-    materials: ['8.76mm 안전 접합유리(도난/비산방지)', '밀폐식 기밀구조 실리콘 프리 가스켓', '광섬유 무자외선 보존용 스포트 조명'],
-    description: '고가치 고미술품이나 박물관 역사 유물 보존 가이드를 온전히 충족하는 최고 등급의 기밀 밀폐형 진열장입니다. 온도/습도 유지를 위한 실리카겔 트레이가 하부에 기본 내장되어 유물 노화를 가로막습니다.',
-    features: ['Air-tight 기밀성 0.1 이하 달성', '내부 자재 방출 유해가스 제로(Zero-emission) 검증', '무자외선 광섬유 쿨링 라이팅', '도난 경보 무선 센서 커스텀 탑재']
-  },
-  {
-    id: 'prod-5',
-    name: '아틀리에 미니멀 슬림 콘솔 쇼케이스',
-    category: 'island',
-    categoryLabel: '아일랜드형 진열장',
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800',
-    basePrice: 1150000,
-    dimensions: 'W 900 x D 450 x H 900 mm',
-    materials: ['디아망 유리 8mm', '12mm 초슬림 스틸 프레임 (사틴 블랙/브론즈)', '고연색 하이포인트 LED'],
-    description: '모던한 서재, 현관 전실, 침실 콘솔용으로 설계되어 일상의 소장품을 예술 오브제로 만드는 컴팩트 콘솔 쇼케이스입니다. 극한으로 얇은 철제 다리라인이 공간을 탁 트여 보이게 만듭니다.',
-    features: ['사방 면접합 엣지 피니싱', '초경량 고강도 특수 스틸 아우터 프레임', '바닥부 미세 수평 조절 스크류 장착', '무선 충전형 무배선 리튬 배터리 모델 옵션 가능']
-  },
-  {
-    id: 'prod-6',
-    name: '모던 라이트 인테리어 월-마운트 쇼케이스',
-    category: 'wall',
-    categoryLabel: '벽면형 진열장',
-    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800',
-    basePrice: 2400000,
-    dimensions: 'W 1500 x D 400 x H 1200 mm',
-    materials: ['저철분 초투명 유리 8mm', '사틴 샴페인 골드 서스 304 프레임', '하부 히든 서라운드 LED 조명'],
-    description: '벽면에 직접 거치하거나 가구 위에 빌트인하여 모던한 분위기를 완성하는 가로형 인테리어 쇼케이스입니다. 세련된 골드 프레임과 내부의 조화로운 빛의 흐름이 리빙룸이나 복도를 호텔 라운지처럼 꾸며줍니다.',
-    features: ['하프 미러(반반사 거울) 후면 옵션 가능', '리모트 컨트롤 무단계 밝기 미세 조절(Dimming)', '간편 먼지 털이형 세미 가스켓', '20년 연식 내마모 하이엔드 경첩 탑재']
+    id: 'prod-black-cabinet',
+    name: '아틀리에 무광 블랙 알루미늄 타워 쇼케이스',
+    category: 'cabinet',
+    categoryLabel: '타워형 블랙 진열장',
+    image: blackShowcaseImg,
+    dimensions: 'W 550 x D 450 x H 1800 mm',
+    materials: ['알루미늄(프레임)', 'MDF(벽면)', '유리(선반, 창)'],
+    description: '현대적이고 고급스러운 매트 블랙 아우터 프레임과 사방의 디아망 유리창이 조화를 이루는 프리미엄 타워형 쇼케이스입니다. 하부 매트 블랙 패널 수납함과 상단 일체형 패널이 기성품과는 차별화된 맞춤형 무드를 선사하며, 이동이 자유로운 캐스터와 보안 열쇠가 탑재되어 있어 갤러리, 매장, 개인 서재 등 모든 공간에 어울립니다.',
+    features: ['저철분 디아망 유리 기본 탑재', '매트 블랙 정밀 아노다이징 프레임', '원키 잠금장치 시스템 장착', '무소음 캐스터 바퀴 탑재로 뛰어난 이동성']
   }
 ];
+

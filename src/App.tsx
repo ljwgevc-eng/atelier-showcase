@@ -7,13 +7,11 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
-import PortfolioList from './components/PortfolioList';
 import ProductCatalog from './components/ProductCatalog';
 import ProcessSection from './components/ProcessSection';
 import SupportSection from './components/SupportSection';
 import InquiryForm from './components/InquiryForm';
 import Footer from './components/Footer';
-import { PortfolioItem } from './types';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState<string>('home');
@@ -21,36 +19,15 @@ export default function App() {
   // States for pre-populated inquiries from portfolio styles
   const [selectedStyleTitle, setSelectedStyleTitle] = useState<string>('');
   const [selectedStyleCategory, setSelectedStyleCategory] = useState<string>('');
+  const [selectedStyleDimensions, setSelectedStyleDimensions] = useState<string>('');
 
-  // Floating preview item state (bridges hero home clicks with portfolio detail modal)
-  const [selectedPortfolioPreItem, setSelectedPortfolioPreItem] = useState<PortfolioItem | null>(null);
-
-  // Triggered when clicking "이 시공 스타일로 견적 문의" inside Portfolio List
-  const handleQuoteWithStyle = (portfolioTitle: string, category: string) => {
-    setSelectedStyleTitle(portfolioTitle);
-    setSelectedStyleCategory(category);
-    setCurrentTab('inquiry');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // Triggered when clicking "이 견적으로 제작 문의하기" inside Product Catalog
-  const handleQuoteWithProduct = (details: string, category: string) => {
+  // Triggered when clicking "이 제품 사양으로 문의하기" inside Product Catalog
+  const handleQuoteWithProduct = (details: string, category: string, dimensions?: string) => {
     setSelectedStyleTitle(details);
     setSelectedStyleCategory(category);
+    setSelectedStyleDimensions(dimensions || '');
     setCurrentTab('inquiry');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // Triggered when clicking portfolio cards in Home/Hero
-  const handleSelectPortfolioFromHome = (item: PortfolioItem) => {
-    setSelectedPortfolioPreItem(item);
-    setCurrentTab('portfolio');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // Reset pre-item once portfolio list modal closes
-  const handleClosePreItem = () => {
-    setSelectedPortfolioPreItem(null);
   };
 
   // Direct estimate button handler
@@ -86,19 +63,10 @@ export default function App() {
               setCurrentTab(tab);
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            onSelectPortfolio={handleSelectPortfolioFromHome}
           />
         )}
 
         {currentTab === 'about' && <AboutUs />}
-
-        {currentTab === 'portfolio' && (
-          <PortfolioList
-            onQuoteWithStyle={handleQuoteWithStyle}
-            selectedPreItem={selectedPortfolioPreItem}
-            onClosePreItem={handleClosePreItem}
-          />
-        )}
 
         {currentTab === 'products' && (
           <ProductCatalog
@@ -114,6 +82,7 @@ export default function App() {
           <InquiryForm
             initialStyleTitle={selectedStyleTitle}
             initialCategory={selectedStyleCategory}
+            initialDimensions={selectedStyleDimensions}
           />
         )}
       </main>

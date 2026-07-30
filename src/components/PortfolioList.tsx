@@ -5,7 +5,7 @@ import { PORTFOLIO_DATA } from '../data';
 import { PortfolioItem } from '../types';
 
 interface PortfolioListProps {
-  onQuoteWithStyle: (portfolioTitle: string, category: string) => void;
+  onQuoteWithStyle: (portfolioTitle: string, category: string, dimensions?: string) => void;
   selectedPreItem?: PortfolioItem | null;
   onClosePreItem?: () => void;
 }
@@ -322,7 +322,7 @@ export default function PortfolioList({ onQuoteWithStyle, selectedPreItem, onClo
                   <button
                     id="quote-with-style-btn"
                     onClick={() => {
-                      onQuoteWithStyle(selectedItem.title, selectedItem.category);
+                      onQuoteWithStyle(selectedItem.title, selectedItem.category, selectedItem.size);
                       handleCloseDetail();
                     }}
                     className="flex-grow py-3 bg-gradient-to-r from-gold-600 to-gold-400 hover:from-gold-500 hover:to-gold-300 text-slate-950 font-bold text-xs sm:text-sm tracking-wider uppercase rounded-sm transition-transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 shadow-lg"

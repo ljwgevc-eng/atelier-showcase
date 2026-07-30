@@ -61,11 +61,6 @@ export default function Footer({ onNavigate }: FooterProps) {
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('portfolio')} className="hover:text-gold-400 transition-colors cursor-pointer text-[11px]">
-                  포트폴리오 갤러리 (Portfolio)
-                </button>
-              </li>
-              <li>
                 <button onClick={() => onNavigate('products')} className="hover:text-gold-400 transition-colors cursor-pointer text-[11px]">
                   제품 라인업 (Products Catalog)
                 </button>
@@ -97,7 +92,6 @@ export default function Footer({ onNavigate }: FooterProps) {
             
             <div className="flex items-baseline space-x-2">
               <a href="tel:010-6370-2509" className="text-xl font-bold font-serif text-gold-400 tracking-tight hover:underline">010-6370-2509</a>
-              <span className="text-[10px] text-slate-500 font-light">수도권 전지역 무료 출장 및 가구 배송</span>
             </div>
 
             <div className="space-y-1.5 text-[11px] text-slate-500 font-light leading-relaxed">

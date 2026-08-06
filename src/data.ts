@@ -1,5 +1,5 @@
 import { PortfolioItem, FAQItem, ReviewItem, ProductItem } from './types';
-const blackShowcaseImg = '/src/assets/images/empty_black_cabinet_1784075717452.jpg';
+const blackShowcaseImg = '/assets/images/empty_black_cabinet_1784075717452.jpg';
 
 export const PORTFOLIO_DATA: PortfolioItem[] = [
   {

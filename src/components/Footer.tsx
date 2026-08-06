@@ -62,7 +62,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               </li>
               <li>
                 <button onClick={() => onNavigate('products')} className="hover:text-gold-400 transition-colors cursor-pointer text-[11px]">
-                  제품 라인업 (Products Catalog)
+                  유리진열장 (Products Catalog)
                 </button>
               </li>
               <li>

@@ -8,7 +8,7 @@ const PRESET_USES = [
   {
     id: 'empty',
     label: '기본 공백 상태',
-    image: '/src/assets/images/empty_black_cabinet_1784075717452.jpg',
+    image: '/assets/images/empty_black_cabinet_1784075717452.jpg',
     icon: '🔲',
     title: '미완성된 캔버스 상태',
     description: '어떤 소장품이든 담을 수 있는 정교한 무광 블랙 금속 및 디아망 유리 쇼케이스의 순수한 원형입니다.'
@@ -16,7 +16,7 @@ const PRESET_USES = [
   {
     id: 'liquor',
     label: '고급 주류 / 와인 바',
-    image: '/src/assets/images/cabinet_liquor_1784104573500.jpg',
+    image: '/assets/images/cabinet_liquor_1784104573500.jpg',
     icon: '🍷',
     title: '럭셔리 위스키 & 와인 바',
     description: '싱글 몰트 위스키, 프레스티지 샴페인, 명품 와인 소장에 최적화되었습니다. 은은한 LED 조명이 보틀의 영롱한 호버색을 강조하며 매혹적인 아우라를 선사합니다.'
@@ -24,7 +24,7 @@ const PRESET_USES = [
   {
     id: 'trophy',
     label: '명예 트로피 / 훈장',
-    image: '/src/assets/images/cabinet_trophies_1784104609691.jpg',
+    image: '/assets/images/cabinet_trophies_1784104609691.jpg',
     icon: '🏆',
     title: '명예와 영광의 트로피 쇼케이스',
     description: '기업의 상패, 감사패, 스포츠 우승 컵, 개인의 훈장 등을 보관합니다. 빛 왜곡이 없는 투명한 디아망 유리와 아우터 무광 블랙 프레임이 최고의 영광을 진중하게 강조합니다.'
@@ -32,7 +32,7 @@ const PRESET_USES = [
   {
     id: 'figures',
     label: '피규어 / 하이엔드 수집',
-    image: '/src/assets/images/cabinet_figures_1784104598682.jpg',
+    image: '/assets/images/cabinet_figures_1784104598682.jpg',
     icon: '👾',
     title: '프리미엄 피규어 및 콜렉터 스튜디오',
     description: '한정판 피규어, 캐릭터 스태츄, 수집 장난감을 완벽 보존합니다. 초정밀 오링 밀폐 기술로 내부 먼지 유입을 차단하며 360도 사방에서 생생한 관람을 지원합니다.'
@@ -40,7 +40,7 @@ const PRESET_USES = [
   {
     id: 'sports',
     label: '스포츠 기념 컬렉션',
-    image: '/src/assets/images/cabinet_sports_1784104585024.jpg',
+    image: '/assets/images/cabinet_sports_1784104585024.jpg',
     icon: '⚽',
     title: '프로 스포츠 메모라빌리아 쇼룸',
     description: '친필 사인 축구공, 기념 야구 글러브, 한정판 스니커즈, 시그니처 배트 등을 보관합니다. 입체감 있는 내부 레이아웃으로 소장 스포츠 아이템들의 역동성을 보존합니다.'
@@ -48,7 +48,7 @@ const PRESET_USES = [
   {
     id: 'white',
     label: '화이트 프레임 에디션',
-    image: '/src/assets/images/cabinet_white_1784168942419.jpg',
+    image: '/assets/images/cabinet_white_1784168942419.jpg',
     icon: '⬜',
     title: '미니멀 모던 화이트 에디션',
     description: '공간 인테리어에 어울리는 세련되고 화사한 올-무광 화이트 프레임 옵션입니다. 밝은 톤의 거실, 오피스, 미술 갤러리나 매장에 이상적으로 녹아들어 전시물의 매력을 극대화합니다.'
@@ -102,7 +102,7 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-white tracking-tight mb-6"
           >
-            명품 쇼케이스 <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-gold-200">라인업</span>
+            명품 <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-gold-200">유리진열장</span> 라인업
           </motion.h2>
 
           <motion.p
@@ -417,7 +417,7 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                       {/* Schematic Frame */}
                       <div className="relative bg-white flex items-center justify-center p-6 rounded-lg overflow-hidden border border-slate-800 shadow-md">
                         <img
-                          src="/src/assets/images/cabinet_dimensions_guide_1784612200575.jpg"
+                          src="/assets/images/cabinet_dimensions_guide_1784612200575.jpg"
                           alt="유리 진열장 실측 도면"
                           className="max-h-[520px] w-full object-contain"
                           referrerPolicy="no-referrer"
@@ -551,9 +551,9 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                         </span>
                         <div className="flex gap-2.5">
                           <button
-                            onClick={() => setActivePreviewImage('/src/assets/images/empty_black_cabinet_1784075717452.jpg')}
+                            onClick={() => setActivePreviewImage('/assets/images/empty_black_cabinet_1784075717452.jpg')}
                             className={`flex-1 flex items-center justify-center space-x-2 px-3 py-2 rounded-sm border text-xs font-medium cursor-pointer transition-all duration-300 ${
-                              (activePreviewImage === '/src/assets/images/empty_black_cabinet_1784075717452.jpg' || (!activePreviewImage && selectedProduct.id === 'prod-black-cabinet'))
+                              (activePreviewImage === '/assets/images/empty_black_cabinet_1784075717452.jpg' || (!activePreviewImage && selectedProduct.id === 'prod-black-cabinet'))
                                 ? 'bg-slate-900 border-gold-500 text-gold-400 shadow-[0_2px_8px_rgba(212,175,55,0.1)]'
                                 : 'bg-slate-950 border-slate-800/80 text-slate-450 hover:text-slate-300 hover:border-slate-700'
                             }`}
@@ -563,9 +563,9 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                           </button>
                           
                           <button
-                            onClick={() => setActivePreviewImage('/src/assets/images/cabinet_white_1784168942419.jpg')}
+                            onClick={() => setActivePreviewImage('/assets/images/cabinet_white_1784168942419.jpg')}
                             className={`flex-1 flex items-center justify-center space-x-2 px-3 py-2 rounded-sm border text-xs font-medium cursor-pointer transition-all duration-300 ${
-                              (activePreviewImage === '/src/assets/images/cabinet_white_1784168942419.jpg' || (!activePreviewImage && selectedProduct.id === 'prod-white-cabinet'))
+                              (activePreviewImage === '/assets/images/cabinet_white_1784168942419.jpg' || (!activePreviewImage && selectedProduct.id === 'prod-white-cabinet'))
                                 ? 'bg-slate-900 border-gold-500 text-gold-400 shadow-[0_2px_8px_rgba(212,175,55,0.1)]'
                                 : 'bg-slate-950 border-slate-800/80 text-slate-450 hover:text-slate-300 hover:border-slate-700'
                             }`}
@@ -639,7 +639,7 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                   <div className="pt-8 mt-8 border-t border-slate-800">
                     <button
                       onClick={() => {
-                        const isWhite = activePreviewImage === '/src/assets/images/cabinet_white_1784168942419.jpg' || (selectedProduct.id === 'prod-white-cabinet' && !activePreviewImage);
+                        const isWhite = activePreviewImage === '/assets/images/cabinet_white_1784168942419.jpg' || (selectedProduct.id === 'prod-white-cabinet' && !activePreviewImage);
                         const colorText = isWhite ? '무광 화이트' : '무광 블랙';
                         const quoteText = `[550x450 타워형 커스텀 진열장 견적 의뢰]\n높이 : 1800mm\n가로 : 550mm\n깊이 : 450mm\n프레임 색상 : ${colorText}\n선반 개수 : 4단\n선반 간격 : 균등 배분`;
                         onQuoteWithProduct(quoteText, selectedProduct.categoryLabel, 'W 550 x D 450 x H 1800');

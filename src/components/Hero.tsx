@@ -82,7 +82,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               onClick={() => onNavigate('products')}
               className="w-full sm:w-auto px-8 py-4 bg-slate-900/80 hover:bg-slate-800 border border-slate-700 hover:border-gold-400/50 text-white font-medium text-sm tracking-wider rounded-sm transition-all duration-300 flex items-center justify-center space-x-2 backdrop-blur-sm"
             >
-              <span>제품 라인업 보기</span>
+              <span>유리진열장 보기</span>
             </button>
           </motion.div>
 

@@ -23,7 +23,7 @@ export default function Navbar({ currentTab, setCurrentTab, onOpenQuote }: Navba
   const navItems = [
     { id: 'home', label: '홈', icon: Sparkles },
     { id: 'about', label: '브랜드 스토리', icon: Landmark },
-    { id: 'products', label: '제품 라인업', icon: Gem },
+    { id: 'products', label: '유리진열장', icon: Gem },
     { id: 'process', label: '주문 제작 과정', icon: CalendarCheck },
     { id: 'support', label: '고객지원 & 리뷰', icon: HelpCircle },
     { id: 'inquiry', label: '실시간 견적 문의', icon: FileText },

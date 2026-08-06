@@ -1,6 +1,10 @@
 import { PortfolioItem, FAQItem, ReviewItem, ProductItem } from './types';
 import realBlackCabinet from './assets/images/real_black_glass_showcase_1785983918252.jpg';
 import exactWhiteCabinet from './assets/images/exact_white_glass_showcase_1785981488657.jpg';
+import cabinetLiquor from './assets/images/cabinet_liquor_1784104573500.jpg';
+import cabinetSports from './assets/images/cabinet_sports_1784104585024.jpg';
+import cabinetTrophies from './assets/images/cabinet_trophies_1784104609691.jpg';
+import cabinetFigures from './assets/images/cabinet_figures_1784104598682.jpg';
 
 const blackShowcaseImg = realBlackCabinet;
 const cabinetWhite = exactWhiteCabinet;
@@ -12,11 +16,11 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
     category: 'commercial',
     categoryLabel: '상업 공간',
     subtitle: '명품 주얼리의 격을 높이는 브라스 골드 슬림 쇼케이스',
-    description: '최상급 천연 주얼리의 아름다움을 그대로 전달하기 위해 극도로 얇은 12mm 브라스 골드 헤어라인 프레임을 적용했습니다. 철분 함량을 최소화하여 녹색 빛이 전혀 돌지 않는 최고급 저철분 초투명 유리(디아망)를 사용했으며, 미세 접합(UV Bonding) 기술을 통해 볼트 노출이 전혀 없는 시야각을 연출했습니다.',
-    beforeImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=600', // 기성 가구 이미지 느낌
-    afterImage: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=1200', // 고급 주얼리
-    size: 'W 1800 x D 650 x H 950 mm (상부 유리 H 280 mm)',
-    materials: ['저철분 초투명 유리(디아망)', '브라스 골드 헤어라인 스테인리스 스틸', '고연색성 97CRI 매립형 마이크로 LED', '독일산 최고급 전자식 잠금장치'],
+    description: '최상급 천연 주얼리와 고급 보틀의 아름다움을 그대로 전달하기 위해 극도로 얇은 프레임을 적용했습니다. 철분 함량을 최소화하여 녹색 빛이 전혀 돌지 않는 최고급 저철분 초투명 유리(디아망)를 사용했습니다.',
+    beforeImage: exactWhiteCabinet,
+    afterImage: cabinetLiquor,
+    size: 'W 550 x D 450 x H 1800 mm',
+    materials: ['저철분 초투명 유리(디아망)', '아노다이징 프레임', '고연색성 97CRI 상부 LED', '원키 보안 잠금장치'],
     location: '서울 강남구 청담동 가이아 본점',
     year: '2026',
     highlighted: true
@@ -26,12 +30,12 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
     title: '국립 중앙 예술 박물관 특별전시실',
     category: 'exhibition',
     categoryLabel: '전시 공간',
-    subtitle: '고대 유물 보존과 전시를 위한 항온항습 전용 독립형 진열장',
-    description: '박물관 내부의 역사적 유물을 외기 변화로부터 완벽하게 보호할 수 있도록 기밀성(Air-tight) 0.1 이하를 달성한 특수 매립형 진열장입니다. 8mm+8mm 다중 접합 안전 강화유리를 사용하여 도난 방지 및 파손 안전성을 극대화했고, 유해 가스가 방출되지 않는 친환경 보존용 자재와 가스켓을 사용했습니다.',
-    beforeImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=600', // 이전 낡은 전시장 느낌
-    afterImage: 'https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?auto=format&fit=crop&q=80&w=1200', // 박물관 조각상 / 전시
-    size: 'W 2400 x D 1000 x H 2200 mm',
-    materials: ['8.76mm 도난방지 접합 강화유리', '방청 정전도장 프리미엄 스틸 세이프 프레임', '항온항습 모듈(밀폐형)', '무자외선(No UV) 섬유광학 스포트라이트'],
+    subtitle: '명예 트로피와 유물 보존 및 진열을 위한 독립형 4단 유리 진열장',
+    description: '박물관 및 기념관 내부의 귀중한 트로피와 유물을 외기 먼지로부터 완벽하게 보호하는 특수 쇼케이스입니다. 사방 디아망 투명 강화유리를 사용하여 도난 방지 및 파손 안전성을 극대화했습니다.',
+    beforeImage: realBlackCabinet,
+    afterImage: cabinetTrophies,
+    size: 'W 550 x D 450 x H 1800 mm',
+    materials: ['고강도 4단 투명 강화유리 선반', '아노다이징 사틴 블랙 스틸', '원키 보안 키박스', '무소음 이동식 캐스터'],
     location: '국립 중앙 예술 박물관 제3기획전시실',
     year: '2025',
     highlighted: true
@@ -41,12 +45,12 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
     title: '한남동 펜트하우스 하이엔드 피규어 갤러리',
     category: 'home-office',
     categoryLabel: '가정/사무 공간',
-    subtitle: '수집가의 열정을 완벽하게 담은 월-투-월(Wall-to-Wall) 커스텀 쇼룸',
-    description: '개인 수집가의 한정판 대형 스테츄 및 피규어 소장품을 완벽하게 진열하기 위해 벽면 전체를 일체형으로 설계한 초대형 쇼케이스입니다. 선반마다 40kg 이상의 하중을 견디는 12mm 강화유리 선반을 배치하고, 선반 매립형 자석식 전력 전송 레일을 탑재해 선반 높낮이를 조절해도 배선 노출 없이 LED 조명이 항상 켜지도록 고도의 기술력을 적용했습니다.',
-    beforeImage: 'https://images.unsplash.com/photo-1595206133361-b1fe343e5e23?auto=format&fit=crop&q=80&w=600', // 이전 번잡한 조립식 선반 느낌
-    afterImage: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&q=80&w=1200', // 피규어룸
-    size: 'W 4500 x D 550 x H 2400 mm',
-    materials: ['12mm 투명 강화유리 선반', '무선 전력 자석식 레일 시스템', '고휘도 디밍가능 LED 리니어 조명', '다크 안트라사이트 친환경 보드 프레임'],
+    subtitle: '수집가의 열정을 완벽하게 담은 프리미엄 피규어 커스텀 쇼룸',
+    description: '개인 수집가의 한정판 대형 스테츄 및 피규어 소장품을 완벽하게 진열하기 위해 설계된 프리미엄 타워 쇼케이스입니다. 선반마다 고강도 디아망 강화유리 선반을 배치하여 내부 먼지 유입을 철저히 차단합니다.',
+    beforeImage: realBlackCabinet,
+    afterImage: cabinetFigures,
+    size: 'W 550 x D 450 x H 1800 mm',
+    materials: ['4단 디아망 강화유리 선반', '매트 블랙 아노다이징', '상단 보안 잠금장치', '손잡이 없는 하부 수납함'],
     location: '서울 용산구 한남동 프리미엄 빌라',
     year: '2026',
     highlighted: true
@@ -56,27 +60,27 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
     title: '스위스 크로노그래프 롯데 에비뉴엘 쇼룸',
     category: 'commercial',
     categoryLabel: '상업 공간',
-    subtitle: '워치 브랜드의 정체성을 담은 딥 초콜릿 우드 & 골드 아일랜드 진열장',
-    description: '백화점 중심부에 위치한 워치 부티크를 위한 사방 개방형 아일랜드 쇼케이스입니다. 천연 아메리칸 월넛 무늬목 마감과 무광 골드 스틸의 중후한 조합이 명품 시계의 브랜드 헤리티지를 증폭시킵니다. 내부에는 스웨이드 마감 처리를 하여 럭셔리함을 한층 더 높였습니다.',
-    beforeImage: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=600', // 일반 가구
-    afterImage: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a11?auto=format&fit=crop&q=80&w=1200', // 명품 시계 테마
-    size: 'W 1400 x D 600 x H 1000 mm',
-    materials: ['아메리칸 월넛 프리미엄 무늬목', '디아망 유리 4면 접합', 'CRI 95+ 매립형 무지향 LED', '소프트 클로징 최고급 댐퍼 언더레일'],
+    subtitle: '고급 와인 & 프레스티지 보틀을 위한 프리미엄 바 쇼케이스',
+    description: '백화점 부티크 및 고급 와인 바를 위한 사방 개방형 4단 유리 진열장입니다. 은은한 LED 조명이 보틀의 투명함과 깊이를 살려 브랜드 헤리티지를 증폭시킵니다.',
+    beforeImage: exactWhiteCabinet,
+    afterImage: cabinetLiquor,
+    size: 'W 550 x D 450 x H 1800 mm',
+    materials: ['매트 블랙 아노다이징 프레임', '디아망 유리 4면 접합', 'CRI 97+ 매립형 LED', '하단 수납함 (민자 도어)'],
     location: '서울 중구 백화점 롯데 에비뉴엘 명품관',
     year: '2025',
     highlighted: false
   },
   {
     id: 'port-5',
-    title: '글로벌 테크기업 R&D 센터 비전 홀 트로피 쇼룸',
+    title: '글로벌 테크기업 R&D 센터 비전 홀 스포츠 메모라빌리아 쇼룸',
     category: 'home-office',
     categoryLabel: '가정/사무 공간',
-    subtitle: '기업의 영광을 기리는 대형 알루미늄 메탈 라이트 라인 타워 진열장',
-    description: '기업 로비에 설치되어 수상 이력과 특허 제품들을 전시하는 프리미엄 메탈 타워 쇼케이스입니다. 전면 강화유리 도어에 숨겨진 터치 버튼으로 도어를 부드럽게 스윙 구동할 수 있으며, 상하단 전체에 흐르는 간접 미러 그라데이션 조명으로 기술적인 우아함을 자랑합니다.',
-    beforeImage: 'https://images.unsplash.com/photo-1531971589569-0d93700fd1c5?auto=format&fit=crop&q=80&w=600', // 일반 사무실 수납장
-    afterImage: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1200', // 모던 진열 공간
-    size: 'W 3000 x D 500 x H 2200 mm',
-    materials: ['아노다이징 사틴 블랙 알루미늄', '초투명 강화 접합유리', '스마트 원격 IoT 디밍 조명 시스템', '고강도 미러 코팅 후면 글라스'],
+    subtitle: '프로 스포츠 사인볼 및 기념 소장품을 전시하는 메탈 타워 진열장',
+    description: '기업 로비 및 개인 스포츠 수집가를 위해 친필 사인볼, 기념 용품들을 입체감 있게 전시하는 프리미엄 메탈 타워 쇼케이스입니다.',
+    beforeImage: realBlackCabinet,
+    afterImage: cabinetSports,
+    size: 'W 550 x D 450 x H 1800 mm',
+    materials: ['아노다이징 사틴 블랙 알루미늄', '초투명 강화 접합유리', '상단 보안 키박스', '우레탄 회전 캐스터 바퀴'],
     location: '경기 성남시 글로벌 IT 테크타워 로비',
     year: '2026',
     highlighted: false
@@ -152,25 +156,25 @@ export const REVIEW_DATA: ReviewItem[] = [
 export const PRODUCT_DATA: ProductItem[] = [
   {
     id: 'prod-black-cabinet',
-    name: '아틀리에 무광 블랙 타워형 유리 진열장',
+    name: '아틀리에 무광 블랙 타워형 4단 유리 진열장',
     category: 'cabinet',
-    categoryLabel: '타워형 블랙 진열장',
+    categoryLabel: '타워형 블랙 4단 진열장',
     image: blackShowcaseImg,
     dimensions: 'W 550 x D 450 x H 1800 mm',
-    materials: ['알루미늄 프레임', '하단 수납함', '강화유리(선반/도어)'],
-    description: '현대적이고 고급스러운 매트 블랙 아우터 프레임과 사방의 디아망 유리창이 조화를 이루는 프리미엄 타워형 쇼케이스 (가로 550 x 깊이 450 x 높이 1800 mm)입니다. 유리 도어 좌측 중앙에 위치한 원키 보안 잠금장치와 무소음 우레탄 캐스터 바퀴가 정교하게 탑재되어 있습니다.',
-    features: ['저철분 디아망 강화유리 기본 탑재', '매트 블랙 정밀 아노다이징 프레임 (W 550 x D 450 x H 1800 mm)', '도어 좌측 중앙 사이드 원키 보안 잠금장치 탑재', '하단 무소음 회전 캐스터 바퀴 기본 장착']
+    materials: ['알루미늄 무광 블랙 프레임', '하단 밀폐 수납함 (손잡이/열쇠 없는 민자 도어)', '강화유리 (선반 4개 기본 포함)'],
+    description: '현대적이고 고급스러운 매트 블랙 프레임과 사방 디아망 강화유리창이 조화를 이루는 프리미엄 쇼케이스 (W 550 x D 450 x H 1800 mm)입니다. 고강도 강화유리 선반 4개가 기본 탑재되어 있으며, 상단 유리도어 좌측 중앙에 보안 원키 잠금장치가 장착되어 있습니다. 하부 수납함은 손잡이, 열쇠, 장식이 전혀 없는 깔끔한 민자 패널 수납 공간입니다.',
+    features: ['고강도 디아망 강화유리 선반 4개 기본 탑재', '매트 블랙 정밀 아노다이징 프레임 (W 550 x D 450 x H 1800 mm)', '상단 유리도어 좌측 원키 보안 잠금장치 (하부 수납함은 손잡이/열쇠 없는 매끈한 민자 도어)', '하단 무소음 회전 캐스터 바퀴 기본 장착']
   },
   {
     id: 'prod-white-cabinet',
-    name: '아틀리에 하단수납 이동식 올-화이트 유리 진열장',
+    name: '아틀리에 하단수납 이동식 올-화이트 4단 유리 진열장',
     category: 'cabinet',
-    categoryLabel: '하단수납 이동식 진열장',
+    categoryLabel: '하단수납 이동식 4단 진열장',
     image: cabinetWhite,
     dimensions: 'W 550 x D 450 x H 1800 mm',
-    materials: ['알루미늄 프레임', '하단 밀폐 수납함', '강화유리(선반/도어)'],
-    description: '세련된 무드와 화사함을 선사하는 프리미엄 올-화이트 유리 진열장입니다. 4단 고강도 투명 유리 선반, 하단 하중 수납 패널, 앞도어 전용 원키 보안 잠금 열쇠, 그리고 자유로운 전치 이동용 무소음 우레탄 캐스터가 일체형으로 탑재되어 소장품 전시 및 소품 수납에 탁월합니다.',
-    features: ['4단 투명 고강도 유리 선반', '하금속 수납 패널 및 열쇠 잠금 시스템', '이동형 회전 바퀴(캐스터) 장착', '갤러리/매장/개인 서재 맞춤 설계']
+    materials: ['알루미늄 올-화이트 프레임', '하단 밀폐 수납함 (손잡이/열쇠 없는 민자 도어)', '강화유리 (선반 4개 기본 포함)'],
+    description: '세련된 무드와 화사함을 선사하는 프리미엄 올-화이트 4단 유리 진열장 (W 550 x D 450 x H 1800 mm)입니다. 고강도 강화유리 선반 4개가 기본 탑재되어 있으며, 상단 유리도어 좌측 중앙에 보안 원키 잠금장치가 장착되어 있습니다. 하부 수납함은 손잡이나 열쇠 등 장식물 없이 깔끔하고 매끈한 민자 도어 스타일입니다.',
+    features: ['고강도 디아망 강화유리 선반 4개 기본 탑재', '올-화이트 정밀 아노다이징 프레임 (W 550 x D 450 x H 1800 mm)', '상단 유리도어 좌측 원키 보안 잠금장치 (하부 수납함은 손잡이/열쇠 없는 매끈한 민자 도어)', '하단 무소음 회전 캐스터 바퀴 기본 장착']
   }
 ];
 

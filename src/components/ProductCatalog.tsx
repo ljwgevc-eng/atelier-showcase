@@ -5,64 +5,53 @@ import { ProductItem } from '../types';
 import { Check, ArrowRight, X, Sparkles, Sliders, Box, ShieldCheck, Ruler, Eye, Truck } from 'lucide-react';
 
 import realBlackCabinet from '../assets/images/real_black_glass_showcase_1785983918252.jpg';
-import cabinetLiquor from '../assets/images/cabinet_liquor_1784104573500.jpg';
-import cabinetTrophies from '../assets/images/cabinet_trophies_1784104609691.jpg';
-import cabinetFigures from '../assets/images/cabinet_figures_1784104598682.jpg';
-import cabinetSports from '../assets/images/cabinet_sports_1784104585024.jpg';
 import exactWhiteCabinet from '../assets/images/exact_white_glass_showcase_1785981488657.jpg';
 import cabinetDimensionsGuide from '../assets/images/cabinet_dimensions_guide_1784612200575.jpg';
+import cabinetLiquor from '../assets/images/cabinet_liquor_1784104573500.jpg';
+import cabinetSports from '../assets/images/cabinet_sports_1784104585024.jpg';
+import cabinetTrophies from '../assets/images/cabinet_trophies_1784104609691.jpg';
+import cabinetFigures from '../assets/images/cabinet_figures_1784104598682.jpg';
 
-const emptyBlackCabinet = realBlackCabinet;
-const cabinetWhite = exactWhiteCabinet;
-
-const PRESET_USES = [
+const BLACK_CABINET_GALLERY = [
   {
-    id: 'empty',
-    label: '기본 공백 상태',
-    image: emptyBlackCabinet,
-    icon: '🔲',
-    title: '미완성된 캔버스 상태',
-    description: '어떤 소장품이든 담을 수 있는 정교한 무광 블랙 금속 및 디아망 유리 쇼케이스의 순수한 원형입니다.'
+    id: 'black-studio',
+    label: '기본 매트 블랙',
+    title: '🔲 4단 매트 블랙 유리 진열장 스튜디오 실물 원본',
+    desc: 'W 550 x D 450 x H 1800 mm 무광 매트 블랙 프레임과 손잡이/열쇠 없는 민자 하부 수납함의 스튜디오 촬영 원본 실물 컷입니다.',
+    image: realBlackCabinet,
+    icon: '🔲'
   },
   {
-    id: 'liquor',
-    label: '고급 주류 / 와인 바',
+    id: 'black-liquor',
+    label: '고급 주류/와인',
+    title: '🍷 고급 주류 & 와인 바 디스플레이 연출 예시',
+    desc: '싱글몰트 위스키, 프레스티지 샴페인, 명품 와인을 4단 디아망 강화유리 선반에 진열한 럭셔리 보틀 연출 컷입니다.',
     image: cabinetLiquor,
-    icon: '🍷',
-    title: '럭셔리 위스키 & 와인 바',
-    description: '싱글 몰트 위스키, 프레스티지 샴페인, 명품 와인 소장에 최적화되었습니다. 은은한 LED 조명이 보틀의 영롱한 호버색을 강조하며 매혹적인 아우라를 선사합니다.'
+    icon: '🍷'
   },
   {
-    id: 'trophy',
-    label: '명예 트로피 / 훈장',
-    image: cabinetTrophies,
-    icon: '🏆',
-    title: '명예와 영광의 트로피 쇼케이스',
-    description: '기업의 상패, 감사패, 스포츠 우승 컵, 개인의 훈장 등을 보관합니다. 빛 왜곡이 없는 투명한 디아망 유리와 아우터 무광 블랙 프레임이 최고의 영광을 진중하게 강조합니다.'
-  },
-  {
-    id: 'figures',
-    label: '피규어 / 하이엔드 수집',
-    image: cabinetFigures,
-    icon: '👾',
-    title: '프리미엄 피규어 및 콜렉터 스튜디오',
-    description: '한정판 피규어, 캐릭터 스태츄, 수집 장난감을 완벽 보존합니다. 초정밀 오링 밀폐 기술로 내부 먼지 유입을 차단하며 360도 사방에서 생생한 관람을 지원합니다.'
-  },
-  {
-    id: 'sports',
-    label: '스포츠 기념 컬렉션',
+    id: 'black-sports',
+    label: '스포츠 기념품',
+    title: '⚽ 프로 스포츠 메모라빌리아 쇼룸 연출 예시',
+    desc: '친필 사인볼, 스포츠 글러브, 농구공, 테니스라켓 및 굿즈를 입체감 있게 진열한 스포츠 콜렉터 연출 컷입니다.',
     image: cabinetSports,
-    icon: '⚽',
-    title: '프로 스포츠 메모라빌리아 쇼룸',
-    description: '친필 사인 축구공, 기념 야구 글러브, 한정판 스니커즈, 시그니처 배트 등을 보관합니다. 입체감 있는 내부 레이아웃으로 소장 스포츠 아이템들의 역동성을 보존합니다.'
+    icon: '⚽'
   },
   {
-    id: 'white',
-    label: '하단수납 / 이동식 진열장',
-    image: cabinetWhite,
-    icon: '🏢',
-    title: '하단수납 이동식 갤러리 쇼케이스',
-    description: '하단 밀폐 수납함과 무소음 이동식 캐스터 바퀴가 기본 탑재된 풀 스펙 진열장입니다. 거실, 오피스, 미술 갤러리나 매장 등 다양한 공간에 이상적으로 어울립니다.'
+    id: 'black-trophies',
+    label: '명예 트로피/상패',
+    title: '🏆 명예 트로피 & 감사패 기념관 연출 예시',
+    desc: '골프 트로피, 우승컵, 감사패, 개인 훈장 등을 진중하고 기품 있게 보존하는 명예 전시 연출 컷입니다.',
+    image: cabinetTrophies,
+    icon: '🏆'
+  },
+  {
+    id: 'black-figures',
+    label: '피규어/수집품',
+    title: '👾 하이엔드 피규어 & 콜렉터 연출 예시',
+    desc: '한정판 피규어와 스태츄, 수집품의 먼지 유입을 차단하며 사방에서 투명하게 관람하는 연출 컷입니다.',
+    image: cabinetFigures,
+    icon: '👾'
   }
 ];
 
@@ -280,11 +269,10 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                   <X className="w-5 h-5" />
                 </button>
 
-                {/* Left Column: Image & Interactive Use Cases */}
-                <div className="w-full md:w-[55%] bg-slate-950 flex flex-col justify-between overflow-y-auto max-h-[60vh] md:max-h-full border-r border-slate-800">
-                  
-                  {/* The Display Stage (White Background) */}
-                  <div className="relative bg-white flex items-center justify-center h-[360px] sm:h-[440px] md:h-[540px] lg:h-[620px] xl:h-[680px] p-8 select-none shrink-0 border-b border-slate-800">
+                {/* Left Column: Real Product Studio Photo, Display Examples & Dimension Blueprint */}
+                <div className="w-full md:w-[55%] bg-slate-950 flex flex-col justify-between overflow-y-auto max-h-[60vh] md:max-h-full border-r border-slate-800 p-6 space-y-8">
+                  {/* The Main Display Stage (White Background) */}
+                  <div className="relative bg-white flex items-center justify-center h-[360px] sm:h-[440px] md:h-[520px] lg:h-[580px] p-6 select-none shrink-0 border border-slate-800 rounded-lg shadow-inner">
                     <img
                       src={activePreviewImage || selectedProduct.image}
                       alt={selectedProduct.name}
@@ -298,7 +286,91 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                         {selectedProduct.categoryLabel}
                       </span>
                     </div>
+
+                    <div className="absolute bottom-3 right-3 bg-slate-950/85 backdrop-blur-sm px-3 py-1 rounded border border-slate-800 text-[11px] text-slate-300">
+                      💡 탭이나 아래 카드를 클릭하시면 확대된 실물 사진을 감상하실 수 있습니다
+                    </div>
                   </div>
+
+                  {/* Black Showcase Example Quick Selector Bar */}
+                  {selectedProduct.id === 'prod-black-cabinet' && (
+                    <div className="p-4 bg-slate-900/80 border border-slate-800 rounded-lg space-y-3">
+                      <h4 className="text-xs tracking-wider text-gold-400 font-serif font-bold uppercase flex items-center">
+                        <Sparkles className="w-3.5 h-3.5 text-gold-500 mr-1.5" />
+                        블랙 진열장 디스플레이 연출 예시 선택
+                      </h4>
+                      <div className="grid grid-cols-5 gap-2">
+                        {BLACK_CABINET_GALLERY.map((item) => {
+                          const isActive = (activePreviewImage || selectedProduct.image) === item.image;
+                          return (
+                            <button
+                              key={item.id}
+                              onClick={() => setActivePreviewImage(item.image)}
+                              className={`p-2 rounded flex flex-col items-center justify-center border transition-all duration-200 cursor-pointer ${
+                                isActive
+                                  ? 'bg-gold-500/15 border-gold-400 text-gold-300 shadow-md ring-1 ring-gold-400/50'
+                                  : 'bg-slate-950/70 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700'
+                              }`}
+                            >
+                              <span className="text-base mb-0.5">{item.icon}</span>
+                              <span className="text-[10px] sm:text-[11px] font-medium leading-tight text-center">{item.label}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Black Showcase Display Examples Gallery Cards */}
+                  {selectedProduct.id === 'prod-black-cabinet' && (
+                    <div className="space-y-4 pt-2">
+                      <div className="border-b border-slate-800/60 pb-2.5">
+                        <h4 className="text-sm tracking-widest text-gold-400 font-serif font-bold uppercase flex items-center">
+                          <Eye className="w-4 h-4 text-gold-500 mr-2" />
+                          블랙 진열장 분야별 디스플레이 연출 예시
+                        </h4>
+                        <p className="text-xs text-slate-400 font-light mt-1 leading-relaxed">
+                          주류, 스포츠 용품, 트로피, 피규어 등 다양한 소장품을 진열한 실물 촬영 예시입니다. 카드를 클릭하면 상단 큰 화면으로 확인하실 수 있습니다.
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {BLACK_CABINET_GALLERY.map((ex) => (
+                          <div
+                            key={ex.id}
+                            onClick={() => setActivePreviewImage(ex.image)}
+                            className={`group relative bg-slate-900 border rounded-lg overflow-hidden cursor-pointer transition-all duration-300 ${
+                              (activePreviewImage || selectedProduct.image) === ex.image
+                                ? 'border-gold-400 ring-2 ring-gold-400/40 shadow-lg'
+                                : 'border-slate-800 hover:border-slate-700 hover:bg-slate-850'
+                            }`}
+                          >
+                            <div className="bg-white h-60 sm:h-64 flex items-center justify-center p-3 relative overflow-hidden">
+                              <img
+                                src={ex.image}
+                                alt={ex.title}
+                                className="max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                                referrerPolicy="no-referrer"
+                              />
+                              <div className="absolute top-2 left-2 bg-slate-950/85 backdrop-blur-sm border border-gold-500/30 text-gold-300 px-2 py-0.5 rounded text-[10px] font-medium flex items-center gap-1">
+                                <span>{ex.icon}</span>
+                                <span>클릭하여 큰 사진으로 보기</span>
+                              </div>
+                            </div>
+                            <div className="p-3.5 space-y-1 bg-slate-900">
+                              <h5 className="text-xs font-semibold text-white group-hover:text-gold-300 transition-colors flex items-center justify-between">
+                                <span>{ex.title}</span>
+                                <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-gold-400 transition-colors" />
+                              </h5>
+                              <p className="text-[11px] text-slate-400 font-light leading-snug">
+                                {ex.desc}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   {/* Detailed Dimension Blueprint Section */}
                     <div className="pt-10 border-t border-slate-800/60 space-y-6">
@@ -355,7 +427,7 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                           </div>
                           <div className="flex justify-between py-1.5 col-span-1 sm:col-span-2">
                             <span className="text-slate-400">주요 특징</span>
-                            <span className="text-white font-medium">도어 좌측 중앙 원키 보안 잠금장치 탑재, 이동식 우레탄 바퀴 기본 세팅</span>
+                            <span className="text-white font-medium">상단 유리도어 좌측 원키 보안 잠금장치 (하부 수납함은 손잡이/열쇠 없는 매끈한 민자 도어), 이동식 우레탄 바퀴 기본 세팅</span>
                           </div>
                         </div>
                         <p className="text-[11px] text-slate-500 leading-normal pt-2 border-t border-slate-800/60 font-light">

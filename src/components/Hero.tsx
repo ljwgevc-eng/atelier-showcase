@@ -1,6 +1,8 @@
 import React from 'react';
 import { ArrowRight, ShieldCheck, Gem, Sparkles, Award, Ruler, CheckCircle2 } from 'lucide-react';
 import { motion } from 'motion/react';
+import realBlackCabinet from '../assets/images/real_black_glass_showcase_1785983918252.jpg';
+import exactWhiteCabinet from '../assets/images/exact_white_glass_showcase_1785981488657.jpg';
 
 interface HeroProps {
   onNavigate: (tab: string) => void;
@@ -12,15 +14,23 @@ export default function Hero({ onNavigate }: HeroProps) {
       {/* 1. Interactive Hero Slider / Banner */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-4 sm:px-6 lg:px-8">
         {/* Background Image with elegant dark overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1545987796-200677ee1011?auto=format&fit=crop&q=80&w=2000"
-            alt="Luxury Atelier Showroom Background"
-            className="w-full h-full object-cover opacity-35"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/70 to-slate-950" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-transparent to-slate-950 opacity-60" />
+        <div className="absolute inset-0 z-0 flex items-center justify-center opacity-25 filter blur-[2px] overflow-hidden">
+          <div className="flex items-center justify-center space-x-12 max-w-4xl">
+            <img
+              src={realBlackCabinet}
+              alt="Atelier Black Showcase"
+              className="h-[650px] w-auto object-contain"
+              referrerPolicy="no-referrer"
+            />
+            <img
+              src={exactWhiteCabinet}
+              alt="Atelier White Showcase"
+              className="h-[650px] w-auto object-contain hidden sm:block"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-transparent to-slate-950" />
         </div>
 
         {/* Floating golden subtle lights */}

@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans KR", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cinzel", "Playfair Display", serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --color-gold-50: #fbf8f1;
+  --color-gold-100: #f4ecdc;
+  --color-gold-200: #e7d8bb;
+  --color-gold-300: #d6be92;
+  --color-gold-400: #c2a16a;
+  --color-gold-500: #b08951;
+  --color-gold-600: #9c7343;
+  --color-gold-700: #815c36;
+  --color-gold-800: #67472e;
+  --color-gold-900: #553b28;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a; /* Slate 900 */
+}
+::-webkit-scrollbar-thumb {
+  background: #c2a16a; /* Gold 400 */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b08951; /* Gold 500 */
+}
+

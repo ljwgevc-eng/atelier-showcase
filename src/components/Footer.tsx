@@ -97,11 +97,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             <div className="space-y-1.5 text-[11px] text-slate-500 font-light leading-relaxed">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-3.5 h-3.5 text-gold-400 flex-shrink-0" />
-                <span>서울 가공 공장: 경기 성남시 중원구 사기막골로 123 아틀리에 테크 타운 301호</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="w-3.5 h-3.5 text-gold-400 flex-shrink-0" />
-                <span>청담 상담실: 서울특별시 강남구 압구정로 456 아틀리에 빌딩 2층</span>
+                <span>파주 가공 공장: 경기 연천군 장남면 원당리 637</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-3.5 h-3.5 text-gold-400 flex-shrink-0" />
@@ -140,7 +136,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <span>통신판매업신고: 제 2026-서울강남-0123호</span>
               </div>
               <div className="flex flex-wrap gap-x-4 gap-y-1">
-                <span>본사: 서울특별시 강남구 학동로 123길 12 아틀리에 빌딩 3층</span>
+                <span>본사 및 공장: 경기 연천군 장남면 원당리 637</span>
                 <span>가구제조공장 등록번호: 제 1240-5491호</span>
                 <span>보증 책임 및 가입: SGI서울보증보험 5억원 배상 가입</span>
               </div>

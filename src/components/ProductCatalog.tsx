@@ -4,11 +4,22 @@ import { PRODUCT_DATA } from '../data';
 import { ProductItem } from '../types';
 import { Check, ArrowRight, X, Sparkles, Sliders, Box, ShieldCheck, Ruler, Eye, Truck } from 'lucide-react';
 
+import realBlackCabinet from '../assets/images/real_black_glass_showcase_1785983918252.jpg';
+import cabinetLiquor from '../assets/images/cabinet_liquor_1784104573500.jpg';
+import cabinetTrophies from '../assets/images/cabinet_trophies_1784104609691.jpg';
+import cabinetFigures from '../assets/images/cabinet_figures_1784104598682.jpg';
+import cabinetSports from '../assets/images/cabinet_sports_1784104585024.jpg';
+import exactWhiteCabinet from '../assets/images/exact_white_glass_showcase_1785981488657.jpg';
+import cabinetDimensionsGuide from '../assets/images/cabinet_dimensions_guide_1784612200575.jpg';
+
+const emptyBlackCabinet = realBlackCabinet;
+const cabinetWhite = exactWhiteCabinet;
+
 const PRESET_USES = [
   {
     id: 'empty',
     label: '기본 공백 상태',
-    image: '/assets/images/empty_black_cabinet_1784075717452.jpg',
+    image: emptyBlackCabinet,
     icon: '🔲',
     title: '미완성된 캔버스 상태',
     description: '어떤 소장품이든 담을 수 있는 정교한 무광 블랙 금속 및 디아망 유리 쇼케이스의 순수한 원형입니다.'
@@ -16,7 +27,7 @@ const PRESET_USES = [
   {
     id: 'liquor',
     label: '고급 주류 / 와인 바',
-    image: '/assets/images/cabinet_liquor_1784104573500.jpg',
+    image: cabinetLiquor,
     icon: '🍷',
     title: '럭셔리 위스키 & 와인 바',
     description: '싱글 몰트 위스키, 프레스티지 샴페인, 명품 와인 소장에 최적화되었습니다. 은은한 LED 조명이 보틀의 영롱한 호버색을 강조하며 매혹적인 아우라를 선사합니다.'
@@ -24,7 +35,7 @@ const PRESET_USES = [
   {
     id: 'trophy',
     label: '명예 트로피 / 훈장',
-    image: '/assets/images/cabinet_trophies_1784104609691.jpg',
+    image: cabinetTrophies,
     icon: '🏆',
     title: '명예와 영광의 트로피 쇼케이스',
     description: '기업의 상패, 감사패, 스포츠 우승 컵, 개인의 훈장 등을 보관합니다. 빛 왜곡이 없는 투명한 디아망 유리와 아우터 무광 블랙 프레임이 최고의 영광을 진중하게 강조합니다.'
@@ -32,7 +43,7 @@ const PRESET_USES = [
   {
     id: 'figures',
     label: '피규어 / 하이엔드 수집',
-    image: '/assets/images/cabinet_figures_1784104598682.jpg',
+    image: cabinetFigures,
     icon: '👾',
     title: '프리미엄 피규어 및 콜렉터 스튜디오',
     description: '한정판 피규어, 캐릭터 스태츄, 수집 장난감을 완벽 보존합니다. 초정밀 오링 밀폐 기술로 내부 먼지 유입을 차단하며 360도 사방에서 생생한 관람을 지원합니다.'
@@ -40,18 +51,18 @@ const PRESET_USES = [
   {
     id: 'sports',
     label: '스포츠 기념 컬렉션',
-    image: '/assets/images/cabinet_sports_1784104585024.jpg',
+    image: cabinetSports,
     icon: '⚽',
     title: '프로 스포츠 메모라빌리아 쇼룸',
     description: '친필 사인 축구공, 기념 야구 글러브, 한정판 스니커즈, 시그니처 배트 등을 보관합니다. 입체감 있는 내부 레이아웃으로 소장 스포츠 아이템들의 역동성을 보존합니다.'
   },
   {
     id: 'white',
-    label: '화이트 프레임 에디션',
-    image: '/assets/images/cabinet_white_1784168942419.jpg',
-    icon: '⬜',
-    title: '미니멀 모던 화이트 에디션',
-    description: '공간 인테리어에 어울리는 세련되고 화사한 올-무광 화이트 프레임 옵션입니다. 밝은 톤의 거실, 오피스, 미술 갤러리나 매장에 이상적으로 녹아들어 전시물의 매력을 극대화합니다.'
+    label: '하단수납 / 이동식 진열장',
+    image: cabinetWhite,
+    icon: '🏢',
+    title: '하단수납 이동식 갤러리 쇼케이스',
+    description: '하단 밀폐 수납함과 무소음 이동식 캐스터 바퀴가 기본 탑재된 풀 스펙 진열장입니다. 거실, 오피스, 미술 갤러리나 매장 등 다양한 공간에 이상적으로 어울립니다.'
   }
 ];
 
@@ -66,7 +77,7 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
 
   const categories = [
     { id: 'all', label: '전체 보기' },
-    { id: 'cabinet', label: '블랙 캐비닛/타워형' }
+    { id: 'cabinet', label: '타워형 유리 진열장' }
   ];
 
   const filteredProducts = PRODUCT_DATA.filter((product) => {
@@ -170,7 +181,7 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                 }}
               >
                 {/* Product Image Box */}
-                <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-950">
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-white">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -284,125 +295,12 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                     {/* Floating Info Tag */}
                     <div className="absolute top-4 left-4 bg-slate-950/90 border border-gold-500/40 backdrop-blur-sm px-3.5 py-1.5 rounded-sm shadow-md">
                       <span className="text-[11px] tracking-wider text-gold-300 font-medium font-serif uppercase">
-                        {PRESET_USES.find(u => u.image === (activePreviewImage || selectedProduct.image))?.label || selectedProduct.categoryLabel}
+                        {selectedProduct.categoryLabel}
                       </span>
                     </div>
-
-                    {/* Quick helper tip */}
-                    <div className="absolute bottom-4 right-4 bg-slate-950/80 backdrop-blur-sm px-3 py-1.5 rounded border border-slate-800 text-[11px] text-slate-400">
-                      💡 아래 버튼을 눌러 연출 이미지를 전환해보세요
-                    </div>
                   </div>
 
-                  {/* Interactive Use-Case Tabs Panel */}
-                  <div className="p-6 space-y-5 bg-slate-900/40 flex-grow">
-                    <div>
-                      <h4 className="text-sm tracking-wider text-gold-400 font-serif font-bold uppercase flex items-center mb-2">
-                        <Sparkles className="w-4 h-4 text-gold-500 mr-2" />
-                        공간과 수집 목적에 따른 연출 갤러리
-                      </h4>
-                      <p className="text-[13px] text-slate-350 font-light leading-relaxed">
-                        아틀리에 맞춤 쇼케이스는 용도와 소장품의 성격에 최적화된 내부 인테리어, 조명 연출, 고정 선반 레이아웃 커스텀이 완벽 지원됩니다.
-                      </p>
-                    </div>
-
-                    {/* Horizontal Buttons Grid */}
-                    <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-2">
-                      {PRESET_USES.map((preset) => {
-                        const isActive = (activePreviewImage || selectedProduct.image) === preset.image;
-                        return (
-                          <button
-                            key={preset.id}
-                            onClick={() => setActivePreviewImage(preset.image)}
-                            className={`p-2.5 rounded text-center flex flex-col items-center justify-center border transition-all duration-300 cursor-pointer ${
-                              isActive
-                                ? 'bg-gold-500/10 border-gold-400 text-gold-300 shadow-[0_4px_12px_rgba(212,175,55,0.15)]'
-                                : 'bg-slate-950/60 border-slate-800/80 text-slate-400 hover:text-slate-200 hover:border-slate-700'
-                            }`}
-                          >
-                            <span className="text-xl mb-1">{preset.icon}</span>
-                            <span className="text-[11px] font-medium tracking-tight whitespace-nowrap">{preset.label.split(' ')[0]}</span>
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {/* Selected Use Case Detailed Guide */}
-                    {(() => {
-                      const currentPreset = PRESET_USES.find(u => u.image === (activePreviewImage || selectedProduct.image)) || PRESET_USES[0];
-                      return (
-                        <div className="bg-slate-950/80 border border-slate-800/80 p-4 rounded-md space-y-2 animate-fadeIn">
-                          <div className="flex items-center space-x-2">
-                            <span className="text-lg">{currentPreset.icon}</span>
-                            <span className="text-sm font-semibold text-white">{currentPreset.title}</span>
-                          </div>
-                          <p className="text-[13px] text-slate-300 font-light leading-relaxed">
-                            {currentPreset.description}
-                          </p>
-                        </div>
-                      );
-                    })()}
-                  </div>
-
-                  {/* Detailed Scrollable Showcase Feed */}
-                  <div className="border-t border-slate-800/80 p-6 space-y-8 bg-slate-950">
-                    <div className="border-b border-slate-800/60 pb-4">
-                      <h4 className="text-sm tracking-widest text-gold-400 font-serif font-bold uppercase flex items-center">
-                        <Eye className="w-4 h-4 text-gold-500 mr-2" />
-                        아틀리에 맞춤 연출 상세 보기 (스크롤)
-                      </h4>
-                      <p className="text-xs text-slate-450 font-light mt-1.5 leading-relaxed">
-                        아래로 스크롤하시면 아틀리에 쇼케이스의 다양한 실제 활용 및 맞춤 에디션 사진을 설명과 함께 확인하실 수 있습니다.
-                        <span className="block mt-2 text-gold-400/90 font-medium text-[13px]">※ 사진 속 진열장 내부의 각종 수집품(주류, 피규어, 트로피, 스포츠 소품 등)은 연출을 위한 예시이며, 판매하는 진열장 상품에는 포함되지 않습니다.</span>
-                      </p>
-                    </div>
-
-                    <div className="space-y-12">
-                      {PRESET_USES.map((preset) => (
-                        <div key={`scroll-preset-${preset.id}`} className="space-y-4.5 group">
-                          {/* Photo Frame Container (White backdrop to pop out the showcase) */}
-                          <div className="relative bg-white flex items-center justify-center h-[340px] sm:h-[420px] p-6 rounded-lg overflow-hidden border border-slate-800 shadow-md group-hover:shadow-[0_4px_25px_rgba(212,175,55,0.08)] transition-all duration-300">
-                            <img
-                              src={preset.image}
-                              alt={preset.title}
-                              className="max-h-[95%] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
-                              referrerPolicy="no-referrer"
-                            />
-                            
-                            {/* Preset Icon Label Floating Tag */}
-                            <div className="absolute top-4 left-4 bg-slate-950/95 border border-gold-500/30 backdrop-blur-sm px-3 py-1.5 rounded text-[11px] text-gold-300 font-medium flex items-center gap-1.5">
-                              <span>{preset.icon}</span>
-                              <span className="font-serif uppercase tracking-wider">{preset.label}</span>
-                            </div>
-
-                            {/* Inner Ornament Disclaimer Badge */}
-                            {preset.id !== 'empty' && (
-                              <div className="absolute bottom-4 right-4 bg-slate-950/85 backdrop-blur-sm text-[10px] text-slate-350 border border-slate-800 px-2.5 py-1 rounded">
-                                * 내부 장식품은 연출 예시
-                              </div>
-                            )}
-                          </div>
-
-                          {/* Preset Text Details */}
-                          <div className="px-1 space-y-2">
-                            <h5 className="text-sm font-semibold text-white flex items-center gap-2 group-hover:text-gold-300 transition-colors">
-                              <span className="text-gold-400">{preset.icon}</span>
-                              {preset.title}
-                            </h5>
-                            <p className="text-[13px] text-slate-350 font-light leading-relaxed">
-                              {preset.description}
-                            </p>
-                            {preset.id !== 'empty' && (
-                              <p className="text-[11px] text-slate-500 italic font-light">
-                                * 진열장 내부의 소장품은 세팅 예시이며 진열장 단품 판매 기준입니다.
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Detailed Dimension Blueprint Section */}
+                  {/* Detailed Dimension Blueprint Section */}
                     <div className="pt-10 border-t border-slate-800/60 space-y-6">
                       <div className="border-b border-slate-800/40 pb-3">
                         <h4 className="text-sm tracking-widest text-gold-400 font-serif font-bold uppercase flex items-center">
@@ -417,7 +315,7 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                       {/* Schematic Frame */}
                       <div className="relative bg-white flex items-center justify-center p-6 rounded-lg overflow-hidden border border-slate-800 shadow-md">
                         <img
-                          src="/assets/images/cabinet_dimensions_guide_1784612200575.jpg"
+                          src={cabinetDimensionsGuide}
                           alt="유리 진열장 실측 도면"
                           className="max-h-[520px] w-full object-contain"
                           referrerPolicy="no-referrer"
@@ -455,13 +353,9 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                             <span className="text-slate-400">주요 소재</span>
                             <span className="text-white font-medium">알루미늄(프레임), MDF(벽면), 유리(선반, 창)</span>
                           </div>
-                          <div className="flex justify-between py-1.5 border-b border-slate-800/40 col-span-1 sm:col-span-2">
-                            <span className="text-slate-400">프레임 색상</span>
-                            <span className="text-white font-medium">무광 블랙 (기본) / <span className="text-gold-300 font-semibold">모던 무광 화이트 (무료 변경 가능)</span></span>
-                          </div>
                           <div className="flex justify-between py-1.5 col-span-1 sm:col-span-2">
                             <span className="text-slate-400">주요 특징</span>
-                            <span className="text-white font-medium">도어 매립형 안전 잠금장치 탑재, 이동식 우레탄 바퀴 기본 세팅</span>
+                            <span className="text-white font-medium">도어 좌측 중앙 원키 보안 잠금장치 탑재, 이동식 우레탄 바퀴 기본 세팅</span>
                           </div>
                         </div>
                         <p className="text-[11px] text-slate-500 leading-normal pt-2 border-t border-slate-800/60 font-light">
@@ -521,8 +415,6 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                     </div>
                   </div>
 
-                </div>
-
                 {/* Right Column: Details */}
                 <div className="w-full md:w-[45%] flex flex-col justify-between p-8 sm:p-10 md:p-12 overflow-y-auto max-h-[60vh] md:max-h-full">
                   <div className="space-y-8">
@@ -543,38 +435,6 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                         높이, 가로, 깊이부터 선반 구성까지 고객님의 공간에 정밀하게 맞춰 제작하여 
                         매장의 품격과 진열품의 가치를 더욱 높여드립니다.
                       </p>
-
-                      {/* Interactive Frame Color Switcher */}
-                      <div className="pt-4 border-t border-slate-800/60">
-                        <span className="text-xs font-semibold text-slate-400 block mb-2 uppercase tracking-wide">
-                          🎨 실시간 프레임 색상 스위처 (선택 시 이미지 전환)
-                        </span>
-                        <div className="flex gap-2.5">
-                          <button
-                            onClick={() => setActivePreviewImage('/assets/images/empty_black_cabinet_1784075717452.jpg')}
-                            className={`flex-1 flex items-center justify-center space-x-2 px-3 py-2 rounded-sm border text-xs font-medium cursor-pointer transition-all duration-300 ${
-                              (activePreviewImage === '/assets/images/empty_black_cabinet_1784075717452.jpg' || (!activePreviewImage && selectedProduct.id === 'prod-black-cabinet'))
-                                ? 'bg-slate-900 border-gold-500 text-gold-400 shadow-[0_2px_8px_rgba(212,175,55,0.1)]'
-                                : 'bg-slate-950 border-slate-800/80 text-slate-450 hover:text-slate-300 hover:border-slate-700'
-                            }`}
-                          >
-                            <span className="w-3 h-3 rounded-full bg-slate-950 border border-slate-700 block shrink-0" />
-                            <span>시그니처 무광 블랙</span>
-                          </button>
-                          
-                          <button
-                            onClick={() => setActivePreviewImage('/assets/images/cabinet_white_1784168942419.jpg')}
-                            className={`flex-1 flex items-center justify-center space-x-2 px-3 py-2 rounded-sm border text-xs font-medium cursor-pointer transition-all duration-300 ${
-                              (activePreviewImage === '/assets/images/cabinet_white_1784168942419.jpg' || (!activePreviewImage && selectedProduct.id === 'prod-white-cabinet'))
-                                ? 'bg-slate-900 border-gold-500 text-gold-400 shadow-[0_2px_8px_rgba(212,175,55,0.1)]'
-                                : 'bg-slate-950 border-slate-800/80 text-slate-450 hover:text-slate-300 hover:border-slate-700'
-                            }`}
-                          >
-                            <span className="w-3 h-3 rounded-full bg-white border border-slate-300 block shrink-0" />
-                            <span>모던 무광 화이트</span>
-                          </button>
-                        </div>
-                      </div>
                     </div>
 
                     {/* Signature Spec Grid */}
@@ -588,7 +448,7 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                           { title: '맞춤 사이즈 제작', desc: '1mm 단위 공간 최적화 설계' },
                           { title: '최고급 강화유리 적용', desc: '안전하고 투명한 강화유리 기본' },
                           { title: '견고한 알루미늄 프레임', desc: '뒤틀림 없이 슬림하고 강인한 하중 지지' },
-                          { title: '블랙 / 화이트 프레임 선택', desc: '모던 무광 화이트 컬러 무료 선택 가능' },
+                          { title: '하단 밀폐 수납함 세팅', desc: '재고 및 전용 소품 보관 공간' },
                           { title: '보안 잠금장치 기본 선택', desc: '소중한 전시품의 안전한 보호' },
                           { title: 'LED 광원 옵션', desc: '작품을 돋보이게 하는 연출 조명' },
                           { title: '이동식 바퀴 옵션', desc: '공간 재배치 시 편리한 이동 바퀴' },
@@ -625,7 +485,6 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                         <p><span className="text-slate-500">■ 높이 :</span> 1800mm</p>
                         <p><span className="text-slate-500">■ 가로 :</span> 550mm</p>
                         <p><span className="text-slate-500">■ 깊이 :</span> 450mm</p>
-                        <p><span className="text-slate-500">■ 프레임 색상 :</span> 블랙 / 화이트 선택 가능 <span className="text-gold-400 font-sans text-xs">(무료 변경)</span></p>
                         <p><span className="text-slate-500">■ 선반 개수 :</span> 4단 (또는 원하는 선반 수)</p>
                         <p><span className="text-slate-500">■ 선반 간격 :</span> 임의 균등 / 자유 선택 가능</p>
                         <p><span className="text-slate-500">■ LED 유무 :</span> 유 / 무 선택</p>
@@ -639,10 +498,8 @@ export default function ProductCatalog({ onQuoteWithProduct }: ProductCatalogPro
                   <div className="pt-8 mt-8 border-t border-slate-800">
                     <button
                       onClick={() => {
-                        const isWhite = activePreviewImage === '/assets/images/cabinet_white_1784168942419.jpg' || (selectedProduct.id === 'prod-white-cabinet' && !activePreviewImage);
-                        const colorText = isWhite ? '무광 화이트' : '무광 블랙';
-                        const quoteText = `[550x450 타워형 커스텀 진열장 견적 의뢰]\n높이 : 1800mm\n가로 : 550mm\n깊이 : 450mm\n프레임 색상 : ${colorText}\n선반 개수 : 4단\n선반 간격 : 균등 배분`;
-                        onQuoteWithProduct(quoteText, selectedProduct.categoryLabel, 'W 550 x D 450 x H 1800');
+                        const quoteText = `[${selectedProduct.name} 견적 의뢰]\n높이 : 1800mm\n가로 : 550mm\n깊이 : 450mm\n선반 개수 : 4단\n선반 간격 : 균등 배분`;
+                        onQuoteWithProduct(quoteText, selectedProduct.categoryLabel, selectedProduct.dimensions);
                         setSelectedProduct(null);
                         setActivePreviewImage(null);
                       }}

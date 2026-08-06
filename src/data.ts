@@ -1,5 +1,9 @@
 import { PortfolioItem, FAQItem, ReviewItem, ProductItem } from './types';
-const blackShowcaseImg = '/assets/images/empty_black_cabinet_1784075717452.jpg';
+import realBlackCabinet from './assets/images/real_black_glass_showcase_1785983918252.jpg';
+import exactWhiteCabinet from './assets/images/exact_white_glass_showcase_1785981488657.jpg';
+
+const blackShowcaseImg = realBlackCabinet;
+const cabinetWhite = exactWhiteCabinet;
 
 export const PORTFOLIO_DATA: PortfolioItem[] = [
   {
@@ -148,14 +152,25 @@ export const REVIEW_DATA: ReviewItem[] = [
 export const PRODUCT_DATA: ProductItem[] = [
   {
     id: 'prod-black-cabinet',
-    name: '아틀리에 무광 블랙 알루미늄 타워 쇼케이스',
+    name: '아틀리에 무광 블랙 타워형 유리 진열장',
     category: 'cabinet',
     categoryLabel: '타워형 블랙 진열장',
     image: blackShowcaseImg,
     dimensions: 'W 550 x D 450 x H 1800 mm',
-    materials: ['알루미늄(프레임)', 'MDF(벽면)', '유리(선반, 창)'],
-    description: '현대적이고 고급스러운 매트 블랙 아우터 프레임과 사방의 디아망 유리창이 조화를 이루는 프리미엄 타워형 쇼케이스입니다. 하부 매트 블랙 패널 수납함과 상단 일체형 패널이 기성품과는 차별화된 맞춤형 무드를 선사하며, 이동이 자유로운 캐스터와 보안 열쇠가 탑재되어 있어 갤러리, 매장, 개인 서재 등 모든 공간에 어울립니다.',
-    features: ['저철분 디아망 유리 기본 탑재', '매트 블랙 정밀 아노다이징 프레임', '원키 잠금장치 시스템 장착', '무소음 캐스터 바퀴 탑재로 뛰어난 이동성']
+    materials: ['알루미늄 프레임', '하단 수납함', '강화유리(선반/도어)'],
+    description: '현대적이고 고급스러운 매트 블랙 아우터 프레임과 사방의 디아망 유리창이 조화를 이루는 프리미엄 타워형 쇼케이스 (가로 550 x 깊이 450 x 높이 1800 mm)입니다. 유리 도어 좌측 중앙에 위치한 원키 보안 잠금장치와 무소음 우레탄 캐스터 바퀴가 정교하게 탑재되어 있습니다.',
+    features: ['저철분 디아망 강화유리 기본 탑재', '매트 블랙 정밀 아노다이징 프레임 (W 550 x D 450 x H 1800 mm)', '도어 좌측 중앙 사이드 원키 보안 잠금장치 탑재', '하단 무소음 회전 캐스터 바퀴 기본 장착']
+  },
+  {
+    id: 'prod-white-cabinet',
+    name: '아틀리에 하단수납 이동식 올-화이트 유리 진열장',
+    category: 'cabinet',
+    categoryLabel: '하단수납 이동식 진열장',
+    image: cabinetWhite,
+    dimensions: 'W 550 x D 450 x H 1800 mm',
+    materials: ['알루미늄 프레임', '하단 밀폐 수납함', '강화유리(선반/도어)'],
+    description: '세련된 무드와 화사함을 선사하는 프리미엄 올-화이트 유리 진열장입니다. 4단 고강도 투명 유리 선반, 하단 하중 수납 패널, 앞도어 전용 원키 보안 잠금 열쇠, 그리고 자유로운 전치 이동용 무소음 우레탄 캐스터가 일체형으로 탑재되어 소장품 전시 및 소품 수납에 탁월합니다.',
+    features: ['4단 투명 고강도 유리 선반', '하금속 수납 패널 및 열쇠 잠금 시스템', '이동형 회전 바퀴(캐스터) 장착', '갤러리/매장/개인 서재 맞춤 설계']
   }
 ];
 
